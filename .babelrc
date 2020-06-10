@@ -1,0 +1,52 @@
+{
+  "presets": [
+    ["@babel/preset-env", {
+      "targets": {
+        "browsers": [
+          "> 2%",
+          "not op_mini all"
+        ]
+      },
+      "useBuiltIns": "usage",
+      "corejs": 3
+    }],
+    "@babel/preset-react",
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    ["@babel/plugin-transform-runtime", { "regenerator": true }],
+  ],
+  "env": {
+    "test": {
+      "plugins" : [
+        ["react-css-modules", {
+          "generateScopedName": "[local]",
+          "filetypes": {
+            ".scss": { "syntax": "postcss-scss" }
+          }
+        }],
+      ],
+    },
+    "development": {
+      "plugins": [
+        ["react-css-modules", {
+          "generateScopedName": "[name]__[local]___[hash:3]",
+          "filetypes": {
+            ".scss": { "syntax": "postcss-scss" }
+          }
+        }]
+      ]
+    },
+    "production": {
+      "plugins": [
+        ["react-css-modules", {
+          "generateScopedName": "[name]__[local]___[hash:3]",
+          "filetypes": {
+            ".scss": { "syntax": "postcss-scss" }
+          }
+        }]
+      ]
+    },
+  }
+}
