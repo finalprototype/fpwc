@@ -1,0 +1,183 @@
+const webpack = require('webpack');
+const path = require('path');
+
+const AutoDllPlugin = require('autodll-webpack-plugin');
+const AutoPrefixer = require('autoprefixer');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const WebpackManifestPlugin = require('webpack-manifest-plugin');
+
+const DEVELOPMENT = process.env.NODE_ENV === 'development';
+const DIR_CLIENT = path.resolve(__dirname, 'src', 'client');
+const DIR_VENDOR = path.resolve(__dirname, 'src', 'vendor');
+const DIR_TYPES = path.resolve(__dirname, 'src', '@types');
+const DIR_OUTPUT = path.resolve(__dirname, 'build');
+
+const publicPath = 'http://lcl.fp.io:7777/';
+
+const config = {
+  entry: {
+    client: path.join(DIR_CLIENT, 'index.tsx'),
+  },
+
+  output: {
+    path: DIR_OUTPUT,
+    filename: DEVELOPMENT ? '[name].js' : '[name].[hash].js',
+    publicPath: publicPath,
+  },
+
+  target: 'web',
+
+  mode: DEVELOPMENT ? 'development' : 'production',
+
+  devtool: "#source-map",
+
+  devServer: {
+    port: 7777,
+    host: '0.0.0.0',
+    disableHostCheck: true,
+    contentBase: './build/',
+    publicPath: '/',
+    quiet: false,
+    noInfo: false,
+    clientLogLevel: 'none',
+    stats: {
+      colors: true,
+      hash: true,
+      timings: true,
+      chunks: false,
+      chunkModules: false,
+      modules: false,
+      children: false,
+    },
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
+    historyApiFallback: true,
+    writeToDisk: true
+  },
+
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
+  },
+
+  watch: true,
+  watchOptions: {
+    poll: 1000
+  },
+
+  plugins: [
+    new CleanWebpackPlugin({ verbose: true }),
+
+    new MiniCssExtractPlugin({
+      filename: DEVELOPMENT ? '[name].css' : '[name].[contenthash].css',
+    }),
+
+    new AutoDllPlugin({
+      debug: true,
+      context: __dirname,
+      filename: '[name].js',
+      entry: {
+        vendor: [
+          'react',
+          'react-dom',
+          'react-router-dom',
+          'react-transition-group',
+          'axios',
+          'classnames',
+          'debug',
+          'flux',
+          'history',
+          'lodash',
+          'moment'
+        ]
+      },
+    }),
+
+    new WebpackManifestPlugin({
+      writeToFileEmit: true
+    }),
+
+    new CompressionPlugin({
+      exclude: /\.(txt|json)/,
+      deleteOriginalAssets: true,
+    })
+  ],
+
+  module: {
+    rules: [
+      {
+        test: /\.(ts|tsx)$/,
+        loader: "awesome-typescript-loader",
+        options : {
+            reportFiles: [
+              path.join(DIR_CLIENT, '**/*.{ts,tsx}')
+            ]
+        },
+      },
+
+      {
+        enforce: "pre",
+        test: /\.js$/,
+        loader: "source-map-loader",
+      },
+
+      {
+        test: /\.css$/,
+        include: [path.resolve(__dirname, 'node_modules')],
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          'css-loader',
+        ],
+      },
+
+      {
+        test: /\.scss$/,
+        include: [
+          DIR_CLIENT + '/components/',
+          DIR_CLIENT + '/styles/',
+        ],
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 3,
+              sourceMap: true,
+              modules: {
+                localIdentName: '[name]__[local]___[hash:3]',
+              },
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              plugins: [AutoPrefixer({remove: false})],
+            }
+          },
+          { loader: 'resolve-url-loader' },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
+      },
+    ],
+  },
+
+  resolve: {
+    extensions: ['.js', '.ts', '.jsx', '.tsx'],
+  }
+};
+
+module.exports = config;

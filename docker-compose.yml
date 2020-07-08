@@ -1,0 +1,47 @@
+---
+version: "3.8"
+
+services:
+  assets:
+    build:
+      context: .
+      args:
+        NPM_TOKEN: "${NPM_TOKEN}"
+    container_name: client_62020
+    volumes:
+      - .:/app:delegated
+      - /app/node_modules
+    ports:
+      - "7777:7777"
+    env_file:
+      - .env
+    init: true
+    command: ["/usr/local/bin/npm", "run", "dev:client"]
+
+  bff:
+    build:
+      context: .
+      args:
+        NPM_TOKEN: "${NPM_TOKEN}"
+    volumes:
+      - .:/app:delegated
+      - /app/node_modules
+    container_name: bff_62020
+    links:
+      - redis
+    ports:
+      - "7000:7000"
+      - "9229:9229"
+    env_file:
+      - .env
+    init: true
+    command: ["/usr/local/bin/npm", "run", "dev:server"]
+
+  redis:
+    image: redis:2.8
+    container_name: redis_62020
+
+networks:
+  default:
+    external:
+      name: lcl.fp.io
