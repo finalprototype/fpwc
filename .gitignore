@@ -2,7 +2,7 @@
 .npmrc
 .nvmrc
 .sass-cache
-.env
+.env*
 npm-debug.log
 node_modules
 jest

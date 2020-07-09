@@ -8,6 +8,7 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const WebpackManifestPlugin = require('webpack-manifest-plugin');
+const WebpackS3Plugin = require('webpack-s3-plugin');
 
 const DEVELOPMENT = process.env.NODE_ENV === 'development';
 const DIR_CLIENT = path.resolve(__dirname, 'src', 'client');
@@ -15,7 +16,9 @@ const DIR_VENDOR = path.resolve(__dirname, 'src', 'vendor');
 const DIR_TYPES = path.resolve(__dirname, 'src', '@types');
 const DIR_OUTPUT = path.resolve(__dirname, 'build');
 
-const publicPath = 'http://lcl.fp.io:7777/';
+const publicPath = DEVELOPMENT
+  ? `http://lcl.fp.io:${process.env.PORT_ASSETS}/`
+  : process.env.ASSETS_CDN_URL;
 
 const config = {
   entry: {
@@ -35,7 +38,7 @@ const config = {
   devtool: "#source-map",
 
   devServer: {
-    port: 7777,
+    port: process.env.PORT_ASSETS,
     host: '0.0.0.0',
     disableHostCheck: true,
     contentBase: './build/',
@@ -179,5 +182,26 @@ const config = {
     extensions: ['.js', '.ts', '.jsx', '.tsx'],
   }
 };
+
+if (!DEVELOPMENT) {
+  config.plugins = [].concat([
+    new webpack.DefinePlugin({
+     'process.env.AWS_CDN_URL': JSON.stringify(process.env.AWS_CDN_URL),
+    }),
+    new s3plugin({
+      s3Options: {
+        accessKeyId: process.env.AWS_KEY,
+        secretAccessKey: process.env.AWS_SECRET,
+        region: 'us-east-1'
+      },
+      s3UploadOptions: {
+        Bucket: process.env.AWS_S3_BUCKET,
+        CacheControl: 'max-age=315360000, no-transform, public',
+      },
+      basePath: 'prod',
+      directory: DIR_OUTPUT,
+    })
+  ], config.plugins);
+}
 
 module.exports = config;
