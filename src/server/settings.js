@@ -10,11 +10,6 @@ const ENV_NAME = env
   .required()
   .asEnum([LOCAL, TEST, DEVELOPMENT, PRODUCTION]);
 
-env
-  .get("NODE_ENV")
-  .required()
-  .asEnum(["development", "production", "test"]);
-
 const DEPLOYED = ENV_NAME === DEVELOPMENT || ENV_NAME === PRODUCTION;
 
 module.exports = {

@@ -14,6 +14,7 @@ services:
     ports:
       - "7778:7778"
     env_file:
+      - .env
       - .env-prod
     init: true
     command: ["/usr/local/bin/npm", "run", "build"]

@@ -20,6 +20,8 @@ const publicPath = DEVELOPMENT
   ? `http://lcl.fp.io:${process.env.PORT_ASSETS}/`
   : process.env.ASSETS_CDN_URL;
 
+console.log('process.env.NODE_ENV:', process.env.NODE_ENV);
+
 const config = {
   entry: {
     client: path.join(DIR_CLIENT, 'index.tsx'),
@@ -27,7 +29,7 @@ const config = {
 
   output: {
     path: DIR_OUTPUT,
-    filename: DEVELOPMENT ? '[name].js' : '[name].[hash].js',
+    filename: '[name].js',
     publicPath: publicPath,
   },
 
@@ -67,7 +69,7 @@ const config = {
     minimizer: [new TerserPlugin()],
   },
 
-  watch: true,
+  watch: DEVELOPMENT,
   watchOptions: {
     poll: 1000
   },
@@ -76,7 +78,7 @@ const config = {
     new CleanWebpackPlugin({ verbose: true }),
 
     new MiniCssExtractPlugin({
-      filename: DEVELOPMENT ? '[name].css' : '[name].[contenthash].css',
+      filename: '[name].css',
     }),
 
     new AutoDllPlugin({
@@ -94,8 +96,7 @@ const config = {
           'debug',
           'flux',
           'history',
-          'lodash',
-          'moment'
+          'lodash'
         ]
       },
     }),
@@ -184,11 +185,11 @@ const config = {
 };
 
 if (!DEVELOPMENT) {
-  config.plugins = [].concat([
+  config.plugins = config.plugins.concat([
     new webpack.DefinePlugin({
      'process.env.AWS_CDN_URL': JSON.stringify(process.env.AWS_CDN_URL),
     }),
-    new s3plugin({
+    new WebpackS3Plugin({
       s3Options: {
         accessKeyId: process.env.AWS_KEY,
         secretAccessKey: process.env.AWS_SECRET,
@@ -199,9 +200,8 @@ if (!DEVELOPMENT) {
         CacheControl: 'max-age=315360000, no-transform, public',
       },
       basePath: 'prod',
-      directory: DIR_OUTPUT,
     })
-  ], config.plugins);
+  ]);
 }
 
 module.exports = config;
