@@ -4,7 +4,6 @@ const path = require('path');
 const AutoDllPlugin = require('autodll-webpack-plugin');
 const AutoPrefixer = require('autoprefixer');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CompressionPlugin = require('compression-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const WebpackManifestPlugin = require('webpack-manifest-plugin');
@@ -29,7 +28,7 @@ const config = {
 
   output: {
     path: DIR_OUTPUT,
-    filename: '[name].js',
+    filename: DEVELOPMENT ? '[name].js' : '[name].[hash].js',
     publicPath: publicPath,
   },
 
@@ -75,16 +74,19 @@ const config = {
   },
 
   plugins: [
-    new CleanWebpackPlugin({ verbose: true }),
+    new CleanWebpackPlugin({
+      verbose: true,
+      protectWebpackAssets: false
+    }),
 
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: DEVELOPMENT ? '[name].css' : '[name].[hash].css',
     }),
 
     new AutoDllPlugin({
-      debug: true,
+      debug: DEVELOPMENT,
       context: __dirname,
-      filename: '[name].js',
+      filename: DEVELOPMENT ? '[name].js' : '[name].[contenthash].js',
       entry: {
         vendor: [
           'react',
@@ -103,11 +105,6 @@ const config = {
 
     new WebpackManifestPlugin({
       writeToFileEmit: true
-    }),
-
-    new CompressionPlugin({
-      exclude: /\.(txt|json)/,
-      deleteOriginalAssets: true,
     })
   ],
 

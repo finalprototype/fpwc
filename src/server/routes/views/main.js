@@ -12,8 +12,6 @@ module.exports = async (req, res) => {
   const manifest = getManifest();
   const config = {
     manifest,
-    js: manifest.js,
-    css: manifest.css,
     env: settings.ENV_NAME,
   };
 

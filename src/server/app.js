@@ -1,5 +1,4 @@
 const express = require("express");
-const expressStaticGzip = require("express-static-gzip");
 const path = require("path");
 const fs = require("fs");
 const router = require("./routes");
@@ -11,7 +10,7 @@ app.set("view engine", "ejs");
 app.set("view cache", false);
 app.set("env", settings.ENV_NAME);
 
-app.use('/', expressStaticGzip(path.resolve(__dirname, '../../build')))
+app.use(express.static('../../build'));
 app.use(router);
 
 
