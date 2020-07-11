@@ -173,7 +173,12 @@ const config = {
           },
         ],
       },
-    ],
+
+      {
+        test: /\.txt$/i,
+        use: 'raw-loader',
+      }
+    ]
   },
 
   resolve: {
