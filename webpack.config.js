@@ -4,10 +4,13 @@ const path = require('path');
 const AutoDllPlugin = require('autodll-webpack-plugin');
 const AutoPrefixer = require('autoprefixer');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const GitRevisionPlugin = require('git-revision-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const WebpackManifestPlugin = require('webpack-manifest-plugin');
 const WebpackS3Plugin = require('webpack-s3-plugin');
+
+const version = require('./package.json').version;
 
 const DEVELOPMENT = process.env.NODE_ENV === 'development';
 const DIR_CLIENT = path.resolve(__dirname, 'src', 'client');
@@ -17,7 +20,7 @@ const DIR_OUTPUT = path.resolve(__dirname, 'build');
 
 const publicPath = DEVELOPMENT
   ? `http://lcl.fp.io:${process.env.PORT_ASSETS}/`
-  : process.env.ASSETS_CDN_URL;
+  : `${process.env.ASSETS_CDN_URL}${version}/`;
 
 console.log('process.env.NODE_ENV:', process.env.NODE_ENV);
 
@@ -42,7 +45,7 @@ const config = {
     port: process.env.PORT_ASSETS,
     host: '0.0.0.0',
     disableHostCheck: true,
-    contentBase: './build/',
+    contentBase: './build',
     publicPath: '/',
     quiet: false,
     noInfo: false,
@@ -79,6 +82,8 @@ const config = {
       protectWebpackAssets: false
     }),
 
+    new GitRevisionPlugin(),
+
     new MiniCssExtractPlugin({
       filename: DEVELOPMENT ? '[name].css' : '[name].[hash].css',
     }),
@@ -104,7 +109,12 @@ const config = {
     }),
 
     new WebpackManifestPlugin({
-      writeToFileEmit: true
+      writeToFileEmit: true,
+      map: (file) => {
+        // clean keys to not include hashes
+        file.name = file.name.replace(/\.[a-f0-9]{20}\.js/, '.js');
+        return file;
+      }
     })
   ],
 
@@ -201,7 +211,7 @@ if (!DEVELOPMENT) {
         Bucket: process.env.AWS_S3_BUCKET,
         CacheControl: 'max-age=315360000, no-transform, public',
       },
-      basePath: 'prod',
+      basePath: `prod/${version}`,
     })
   ]);
 }

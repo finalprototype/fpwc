@@ -1,5 +1,6 @@
 const settings = require("../../settings");
 const getManifest = require("../../utils/manifest");
+const version = require('../../../../package.json').version;
 
 const escapeHTML = (str) => {
   return str
@@ -13,6 +14,7 @@ module.exports = async (req, res) => {
   const config = {
     manifest,
     env: settings.ENV_NAME,
+    version,
   };
 
 
