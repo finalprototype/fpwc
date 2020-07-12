@@ -19,7 +19,7 @@ const DIR_TYPES = path.resolve(__dirname, 'src', '@types');
 const DIR_OUTPUT = path.resolve(__dirname, 'build');
 
 const publicPath = DEVELOPMENT
-  ? `http://lcl.fp.io:${process.env.PORT_ASSETS}/`
+  ? `http://fpwc.io:${process.env.PORT_ASSETS}/`
   : `${process.env.ASSETS_CDN_URL}${version}/`;
 
 console.log('process.env.NODE_ENV:', process.env.NODE_ENV);
@@ -154,9 +154,7 @@ const config = {
           DIR_CLIENT + '/styles/',
         ],
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-          },
+          { loader: MiniCssExtractPlugin.loader },
           {
             loader: 'css-loader',
             options: {
@@ -174,12 +172,7 @@ const config = {
             }
           },
           { loader: 'resolve-url-loader' },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
+          { loader: 'sass-loader' },
         ],
       },
 

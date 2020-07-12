@@ -38,4 +38,4 @@ services:
 networks:
   default:
     external:
-      name: lcl.fp.io
+      name: fpwc.io
