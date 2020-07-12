@@ -161,7 +161,6 @@ const config = {
             loader: 'css-loader',
             options: {
               importLoaders: 3,
-              sourceMap: true,
               modules: {
                 localIdentName: '[name]__[local]___[hash:3]',
               },
