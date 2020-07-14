@@ -69,11 +69,10 @@
       const script = document.createElement('script');
       script.type = 'text/javascript';
       script.src = 'https://dxcrey4r28b1w.cloudfront.net/smb1/js/mario.min.js';
-
+      script.crossorigin = 'anonymous';
       document.body.appendChild(canvas)
       document.body.removeChild(intro);
       document.head.appendChild(script);
-
       return false;
     });
   </script>
