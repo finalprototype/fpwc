@@ -22,8 +22,6 @@ const publicPath = DEVELOPMENT
   ? `http://fpwc.io:${process.env.PORT_ASSETS}/`
   : `${process.env.ASSETS_CDN_URL}${version}/`;
 
-console.log('process.env.NODE_ENV:', process.env.NODE_ENV);
-
 const config = {
   entry: {
     client: path.join(DIR_CLIENT, 'index.tsx'),
@@ -122,12 +120,16 @@ const config = {
     rules: [
       {
         test: /\.(ts|tsx)$/,
-        loader: "awesome-typescript-loader",
-        options : {
-            reportFiles: [
-              path.join(DIR_CLIENT, '**/*.{ts,tsx}')
-            ]
-        },
+        use:[
+          {
+            loader: "awesome-typescript-loader",
+            options : {
+              reportFiles: [
+                path.join(DIR_CLIENT, '**/*.{ts,tsx}')
+              ]
+            }
+          }
+        ]
       },
 
       {
@@ -167,6 +169,7 @@ const config = {
             loader: 'css-loader',
             options: {
               importLoaders: 3,
+              sourceMap: true,
               modules: {
                 localIdentName: '[name]__[local]___[hash:3]',
               },
