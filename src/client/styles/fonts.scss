@@ -1,0 +1,55 @@
+@font-face {
+  font-family: 'Neo-Navy 3D';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/neonavy3d.woff2') format('woff2'),
+    url('../fonts/neonavy3d.woff') format('woff'),
+    url("../fonts/neonavy3d.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'PT Sans Narrow';
+  font-style: normal;
+  font-weight: normal;
+  src: local('PT Sans Narrow Regular'),
+    url('../fonts/PTSansNarrow-Regular.woff2') format('woff2'),
+    url('../fonts/PTSansNarrow-Regular.woff') format('woff'),
+    url("../fonts/PTSansNarrow-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'PT Sans Narrow';
+  font-style: normal;
+  font-weight: 700;
+  src: local('PT Sans Narrow Bold'),
+    url('../fonts/PTSansNarrow-Bold.woff2') format('woff2')
+    url('../fonts/PTSansNarrow-Bold.woff') format('woff'),
+    url("../fonts/PTSansNarrow-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Selfie';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/SelfieRegular.woff2') format('woff2')
+    url('../fonts/SelfieRegular.woff') format('woff'),
+    url("../fonts/SelfieRegular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Selfie-Black';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/SelfieBlack.woff2') format('woff2')
+    url('../fonts/SelfieBlack.woff') format('woff'),
+    url("../fonts/SelfieBlack.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Fatya';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/Fatya.woff2') format('woff2')
+    url('../fonts/Fatya.woff') format('woff'),
+    url("../fonts/Fatya.ttf") format("truetype");
+}
