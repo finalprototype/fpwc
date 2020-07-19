@@ -1,0 +1,27 @@
+@import '../../../styles/colors.scss';
+
+.container {
+}
+.primary {
+  font-family: "Neo-Navy 3D";
+  font-size: 160px;
+  line-height: 0.8;
+  color: $purple-light;
+}
+
+.secondary {
+  position: absolute;
+  top: 90px;
+  right: -94px;
+  font-family: "Fatya";
+  font-size: 100px;
+  color: $white;
+  line-height: 0.8;
+  transform: rotate(-20deg);
+  text-shadow:
+    0 0 6px $blue,
+    0 0 12px $blue,
+    0 0 24px $blue-light,
+    0 0 48px $white,
+}
+.letter {}
