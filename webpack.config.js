@@ -137,6 +137,14 @@ const config = {
       },
 
       {
+        test: /\.(eot|ttf|woff2?)$/,
+        loader: 'file-loader',
+        options: {
+          name: DEVELOPMENT ? '[name].[ext]' : '[name].[hash].[ext]',
+        }
+      },
+
+      {
         test: /\.css$/,
         include: [path.resolve(__dirname, 'node_modules')],
         use: [
@@ -172,8 +180,13 @@ const config = {
             }
           },
           { loader: 'resolve-url-loader' },
-          { loader: 'sass-loader' },
-        ],
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            }
+          }
+        ]
       },
 
       {
