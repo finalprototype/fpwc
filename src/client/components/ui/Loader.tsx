@@ -13,6 +13,7 @@ interface Props {
 const Loader: React.FunctionComponent<Props> = (props: Props) => {
   const {
     className,
+    inline,
     size = 64,
     color = '#fff'
   } = props;

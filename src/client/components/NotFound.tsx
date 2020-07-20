@@ -8,7 +8,7 @@ interface Props {
   seconds?: number;
 }
 
-const NotFound: React.FunctionComponent = (props: Props) => {
+const NotFound: React.FunctionComponent<Props> = (props: Props) => {
   const { seconds = 5 } = props;
   const [count, setCount] = useState(seconds);
   const history = useHistory();
@@ -16,12 +16,12 @@ const NotFound: React.FunctionComponent = (props: Props) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       if (count === 1) {
-        // history.push('/');
+        history.push('/');
         return;
       }
       setCount(count - 1);
     }, 1000);
-    return () => setTimeout(timer);
+    return () => clearTimeout(timer);
   }, [count]);
 
   return (

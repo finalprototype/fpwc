@@ -25,11 +25,19 @@ const MainNavItem: React.FunctionComponent<Props> = (props: Props) => {
       <div className={styles.activebar}></div>
     );
 
-  const containerClasses = classnames(styles.container, props.className);
+  const containerClasses = classnames(
+    styles.container,
+    props.className,
+   );
+
+  const labelClasses = classnames(
+    styles.label,
+    { [styles.active]: isActive },
+  );
 
   return (
     <Link to={props.route} className={containerClasses}>
-      <div className={styles.label}>{label}</div>
+      <div className={labelClasses}>{label}</div>
       {renderActiveBar}
     </Link>
   );

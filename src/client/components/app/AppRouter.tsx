@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
-import { Location } from "history";
 
 import Home from '../home/Home';
 import About from '../about/About';
@@ -9,13 +8,7 @@ import SMB from '../smb/SMB';
 import Contact from '../contact/Contact';
 import NotFound from '../NotFound';
 
-interface Props {
-  location: Location;
-}
-
-const AppRouter: React.FunctionComponent<Prop> = (props: Props) => {
-  console.log(props.location);
-
+const AppRouter: React.FunctionComponent = () => {
   return (
     <Switch>
       <Redirect exact from="/" to="/home" />
