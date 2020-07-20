@@ -41,6 +41,7 @@ const config = {
 
   devServer: {
     port: process.env.PORT_ASSETS,
+    inline: true,
     host: '0.0.0.0',
     disableHostCheck: true,
     contentBase: './build',
@@ -195,6 +196,26 @@ const config = {
       {
         test: /\.txt$/i,
         use: 'raw-loader',
+      },
+
+      {
+        test: /\.(png|jpe?g|svg|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192
+            }
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              optipng: {
+                optimizationLevel: 7,
+              }
+            }
+          }
+        ]
       }
     ]
   },
