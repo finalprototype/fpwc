@@ -1,0 +1,30 @@
+@import '../../styles/colors.scss';
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.title {
+  font-size: calc(min(30vw, 144px));
+  font-weight: 700;
+  color: $gray-dark;
+}
+
+.subtitle {
+  font-size: calc(min(4vw, 18px));
+  color: $gray-light;
+  padding-bottom: 40px;
+}
+
+.hero {
+  margin: 20px 40px;
+  max-width: 100%;
+}
