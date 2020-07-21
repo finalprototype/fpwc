@@ -1,12 +1,21 @@
 import React from "react";
 
-import styles from "./styles/Work.scss";
+import PageContent from '../ui/PageContent';
+import FmvBackground from '../ui/FmvBackground';
+import Video from '../../videos/drive.mp4';
+import Fallback from '../../images/fallback-drive.jpg';
 
 const Work: React.FunctionComponent = () => {
   return (
-    <div className={styles.container}>
-      Work
-    </div>
+    <>
+      <FmvBackground
+        videoSource={Video}
+        imageFallback={Fallback}
+      />
+      <PageContent flex centered>
+        Work
+      </PageContent>
+    </>
   );
 };
 

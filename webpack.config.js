@@ -140,7 +140,7 @@ const config = {
       },
 
       {
-        test: /\.(eot|ttf|woff2?)$/,
+        test: /\.(mp4|eot|ttf|woff2?)$/,
         loader: 'file-loader',
         options: {
           name: DEVELOPMENT ? '[name].[ext]' : '[name].[hash].[ext]',

@@ -1,4 +1,4 @@
-declare module "*.jpe?g" {
+declare module "*.jpg" {
   const content: string;
   export default content;
 }
@@ -14,6 +14,11 @@ declare module "*.gif" {
 }
 
 declare module "*.svg" {
+  const content: string;
+  export default content;
+}
+
+declare module "*.mp4" {
   const content: string;
   export default content;
 }

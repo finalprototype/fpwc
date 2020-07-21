@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
+import PageContent from './ui/PageContent';
+import FmvBackground from './ui/FmvBackground';
+import Video from '../videos/glitch.mp4';
+import SynthwaveFallback from '../images/fallback-synthwave.jpg';
 import styles from "./styles/NotFound.scss";
 import DeadLink from "../images/dead_link.png";
 
@@ -25,16 +29,22 @@ const NotFound: React.FunctionComponent<Props> = (props: Props) => {
   }, [count]);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.title}>
-        404
-      </div>
-      <div className={styles.subtitle}>
-        (redirecting in {count})
-      </div>
-      <br />
-      <img className={styles.hero} src={DeadLink} />
-    </div>
+    <>
+      <FmvBackground
+        videoSource={Video}
+        imageFallback={SynthwaveFallback}
+      />
+      <PageContent flex centered>
+        <div className={styles.title}>
+          404
+        </div>
+        <div className={styles.subtitle}>
+          (redirecting in {count})
+        </div>
+        <br />
+        <img className={styles.hero} src={DeadLink} />
+      </PageContent>
+    </>
   );
 };
 

@@ -39,12 +39,6 @@ const MainNav: React.FunctionComponent<Props> = (props: Props) => {
         className={styles.item}
         isActive={location.pathname.includes('/smb')}
       />
-      <MainNavItem
-        label="Contact"
-        route="/contact"
-        className={styles.item}
-        isActive={location.pathname.includes('/contact')}
-      />
     </div>
   );
 };

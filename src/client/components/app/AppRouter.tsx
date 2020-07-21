@@ -5,7 +5,6 @@ import Home from '../home/Home';
 import About from '../about/About';
 import Work from '../work/Work';
 import SMB from '../smb/SMB';
-import Contact from '../contact/Contact';
 import NotFound from '../NotFound';
 
 const AppRouter: React.FunctionComponent = () => {
@@ -20,9 +19,6 @@ const AppRouter: React.FunctionComponent = () => {
       </Route>
       <Route exact path="/work">
         <Work />
-      </Route>
-      <Route exact path="/contact">
-        <Contact />
       </Route>
       <Route exact path="/smb">
         <SMB />

@@ -1,7 +1,7 @@
 @import '../../../styles/colors.scss';
 
-.container {
-}
+.container {}
+
 .primary {
   font-family: "Neo-Navy 3D";
   font-size: calc(max(min(20vw, 160px), 80px));
@@ -17,10 +17,15 @@
   font-size: calc(max(min(12.5vw, 100px), 50px));
   line-height: 0.8;
   transform: rotate(-20deg);
+  pointer-events: all;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
 }
 
 .backgroundline {
-  color: $blue-dark;
+  color: $gray;
   position: absolute;
   top: 0;
   left: 0;
@@ -38,62 +43,110 @@
     0 0 12px $blue,
     0 0 24px $blue-light,
     0 0 48px $white;
+}
 
+.neon {
   span {
-    animation-duration: 0.035s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    opacity: 0;
   }
-
-  span:nth-child(1) { animation-name: anim1; }
-  span:nth-child(2) { animation-name: anim2; }
-  span:nth-child(3) { animation-name: anim3; }
-  span:nth-child(4) { animation-name: anim4; }
-  span:nth-child(5) { animation-name: anim5; }
-  span:nth-child(6) { animation-name: anim6; }
-  span:nth-child(8) { animation-name: anim7; }
-  span:nth-child(9) { animation-name: anim8; }
-  span:nth-child(10) { animation-name: anim9; }
-  span:nth-child(11) { animation-name: anim10; }
+  span:nth-child(1) {
+    animation:
+      anim1 1s step-end 1.5s 1 normal forwards,
+      flicker 0.1s step-start 3s infinite;
+  }
+  span:nth-child(2) {
+    animation:
+      anim2 1s step-end 1.5s 1 normal forwards,
+      flicker 0.1s step-start 3.1s infinite;
+  }
+  span:nth-child(3) {
+    animation:
+      anim3 1s step-end 1.5s 1 normal forwards,
+      flicker 0.1s step-start 3.2s infinite;
+  }
+  span:nth-child(4) {
+    animation:
+      anim4 1s step-end 1.5s 1 normal forwards,
+      flicker 0.1s step-start 3.3s infinite;
+  }
+  span:nth-child(5) {
+    animation:
+      anim5 1s step-end 1.5s 1 normal forwards,
+      flicker 0.1s step-start 3.4s infinite;
+  }
+  span:nth-child(6) {
+    animation:
+      anim6 1s step-end 1.5s 1 normal forwards,
+      flicker 0.1s step-start 3.5s infinite;
+  }
+  span:nth-child(8) {
+    animation:
+      anim7 1s step-end 1.5s 1 normal forwards,
+      flicker 0.1s step-start 3.6s infinite;
+  }
+  span:nth-child(9) {
+    animation:
+      anim8 1s step-end 1.5s 1 normal forwards,
+      flicker 0.1s step-start 3.7s infinite;
+  }
+  span:nth-child(10) {
+    animation:
+      anim9 1s step-end 1.5s 1 normal forwards,
+      flicker 0.1s step-start 3.8s infinite;
+  }
+  span:nth-child(11) {
+    animation:
+      anim10 1s step-end 1.5s 1 normal forwards,
+      flicker 0.1s step-start 3.9s infinite;
+  }
 }
 
-@keyframes anim1 {
-  50% { opacity: 0.8; }
-  100% { opacity: 1; }
+.flicker {
+  animation: flicker 0.1s step-start 5s infinite;
 }
-@keyframes anim2 {
-  50% { opacity: 0.6; }
-  100% { opacity: 0.65; }
-}
-@keyframes anim3 {
-  50% { opacity: 0.85; }
-  100% { opacity: 0.9; }
-}
-@keyframes anim4 {
-  50% { opacity: 0.4; }
-  100% { opacity: 0.45; }
-}
-@keyframes anim5 {
-  50% { opacity: 0.95; }
-  100% { opacity: 1; }
-}
-@keyframes anim6 {
-  50% { opacity: 0.85; }
-  100% { opacity: 0.9; }
-}
-@keyframes anim7 {
-  50% { opacity: 0.95; }
-  100% { opacity: 1; }
-}
-@keyframes anim8 {
-  50% { opacity: 0.55; }
-  100% { opacity: 0.6; }
-}
-@keyframes anim9 {
+
+@keyframes flicker {
   50% { opacity: 0.7; }
   100% { opacity: 0.75; }
 }
+
+@keyframes anim1 {
+  1% { opacity: 1; }
+  50%,100% { opacity: 0; }
+}
+@keyframes anim2 {
+  1% { opacity: 1; }
+  90%,100% { opacity: 0; }
+}
+@keyframes anim3 {
+  1% { opacity: 1; }
+  60%,100% { opacity: 0; }
+}
+@keyframes anim4 {
+  1% { opacity: 1; }
+  75%,100% { opacity: 0; }
+}
+@keyframes anim5 {
+  1% { opacity: 1; }
+  95%,100% { opacity: 0; }
+}
+@keyframes anim6 {
+  1% { opacity: 1; }
+  65%,100% { opacity: 0; }
+}
+@keyframes anim7 {
+  1% { opacity: 1; }
+  80%,100% { opacity: 0; }
+}
+@keyframes anim8 {
+  1% { opacity: 1; }
+  85%,100% { opacity: 0; }
+}
+@keyframes anim9 {
+  1% { opacity: 1; }
+  55%,100% { opacity: 0; }
+}
 @keyframes anim10 {
-  50% { opacity: 0.95; }
-  100% { opacity: 1; }
+  1% { opacity: 1; }
+  70%,100% { opacity: 0; }
 }

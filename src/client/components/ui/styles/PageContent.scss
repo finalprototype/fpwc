@@ -1,0 +1,20 @@
+.container {
+  position: relative;
+  margin: 0 auto;
+  max-width: calc(min(85vw, 1000px));
+  min-height: 100%;
+  padding-top: 160px;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.centered {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 0px;
+}
