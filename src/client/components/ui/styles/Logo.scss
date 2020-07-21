@@ -4,24 +4,96 @@
 }
 .primary {
   font-family: "Neo-Navy 3D";
-  font-size: 160px;
+  font-size: calc(max(min(20vw, 160px), 80px));
   line-height: 0.8;
   color: $purple-light;
 }
 
 .secondary {
   position: absolute;
-  top: 90px;
-  right: -94px;
+  top: calc(max(min(11.2vw, 90px), 45px));
+  left: calc(max(min(14.7vw, 118px), 59px));
   font-family: "Fatya";
-  font-size: 100px;
-  color: $white;
+  font-size: calc(max(min(12.5vw, 100px), 50px));
   line-height: 0.8;
   transform: rotate(-20deg);
+}
+
+.backgroundline {
+  color: $blue-dark;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.forgroundline {
+  color: $white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
   text-shadow:
     0 0 6px $blue,
     0 0 12px $blue,
     0 0 24px $blue-light,
-    0 0 48px $white,
+    0 0 48px $white;
+
+  span {
+    animation-duration: 0.035s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  span:nth-child(1) { animation-name: anim1; }
+  span:nth-child(2) { animation-name: anim2; }
+  span:nth-child(3) { animation-name: anim3; }
+  span:nth-child(4) { animation-name: anim4; }
+  span:nth-child(5) { animation-name: anim5; }
+  span:nth-child(6) { animation-name: anim6; }
+  span:nth-child(8) { animation-name: anim7; }
+  span:nth-child(9) { animation-name: anim8; }
+  span:nth-child(10) { animation-name: anim9; }
+  span:nth-child(11) { animation-name: anim10; }
 }
-.letter {}
+
+@keyframes anim1 {
+  50% { opacity: 0.8; }
+  100% { opacity: 1; }
+}
+@keyframes anim2 {
+  50% { opacity: 0.6; }
+  100% { opacity: 0.65; }
+}
+@keyframes anim3 {
+  50% { opacity: 0.85; }
+  100% { opacity: 0.9; }
+}
+@keyframes anim4 {
+  50% { opacity: 0.4; }
+  100% { opacity: 0.45; }
+}
+@keyframes anim5 {
+  50% { opacity: 0.95; }
+  100% { opacity: 1; }
+}
+@keyframes anim6 {
+  50% { opacity: 0.85; }
+  100% { opacity: 0.9; }
+}
+@keyframes anim7 {
+  50% { opacity: 0.95; }
+  100% { opacity: 1; }
+}
+@keyframes anim8 {
+  50% { opacity: 0.55; }
+  100% { opacity: 0.6; }
+}
+@keyframes anim9 {
+  50% { opacity: 0.7; }
+  100% { opacity: 0.75; }
+}
+@keyframes anim10 {
+  50% { opacity: 0.95; }
+  100% { opacity: 1; }
+}

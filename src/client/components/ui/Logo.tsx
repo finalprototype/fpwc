@@ -9,24 +9,33 @@ interface Props {
 
 const Logo: React.FunctionComponent<Props> = (props: Props) => {
   const containerClasses = classnames(styles.container, props.className);
+  const scriptText = (
+    <>
+      <span>W</span>
+      <span>r</span>
+      <span>i</span>
+      <span>t</span>
+      <span>e</span>
+      <span>s</span>
+      <span>&nbsp;</span>
+      <span>C</span>
+      <span>o</span>
+      <span>d</span>
+      <span>e</span>
+    </>
+  );
+
   return (
     <div className={containerClasses}>
       <div className={styles.primary}>
         fp
       </div>
       <div className={styles.secondary}>
-        <div className="line1">
-          <span className="letter">W</span>
-          <span className="letter">r</span>
-          <span className="letter">i</span>
-          <span className="letter">t</span>
-          <span className="letter">e</span>
-          <span className="letter">s</span>
-          <span className="letter">&nbsp;</span>
-          <span className="letter">C</span>
-          <span className="letter">o</span>
-          <span className="letter">d</span>
-          <span className="letter">e</span>
+        <div className={styles.backgroundline}>
+          {scriptText}
+        </div>
+        <div className={styles.forgroundline}>
+          {scriptText}
         </div>
       </div>
     </div>
