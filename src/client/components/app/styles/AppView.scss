@@ -1,28 +1,25 @@
 @import '../../../styles/colors';
 
 .header {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   z-index: 3;
-  display: flex;
   width: 100%;
+  max-width: 100%;
   pointer-events: none;
 }
 
 .nav {
-  position: relative;
-  align-self: flex-start;
-  flex-grow: 1;
-  flex-shrink: 0;
-  text-align: right;
+  position: absolute;
+  right: 0;
   margin: 0 20px 0 0;
+  z-index: 2;
 }
 
 .logo {
-  position: relative;
-  flex-grow: 0;
-  flex-shrink: 1;
+  position: absolute;
+  left: 0;
   z-index: 3;
 }
 

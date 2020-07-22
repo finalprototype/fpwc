@@ -1,6 +1,8 @@
 @import '../../../styles/colors.scss';
 
-.container {}
+.container {
+  user-select: none;
+}
 
 .primary {
   font-family: "Neo-Navy 3D";
