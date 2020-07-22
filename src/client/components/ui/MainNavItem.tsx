@@ -8,6 +8,7 @@ interface Props {
   label: string;
   route: string;
   isActive?: boolean;
+  onClick?: () => void;
   className?: string;
 }
 
@@ -16,6 +17,7 @@ const MainNavItem: React.FunctionComponent<Props> = (props: Props) => {
     label,
     route,
     isActive,
+    onClick,
     className
   } = props;
 
@@ -36,7 +38,11 @@ const MainNavItem: React.FunctionComponent<Props> = (props: Props) => {
   );
 
   return (
-    <Link to={props.route} className={containerClasses}>
+    <Link
+      to={props.route}
+      className={containerClasses}
+      onClick={onClick || undefined}
+    >
       <div className={labelClasses}>{label}</div>
       {renderActiveBar}
     </Link>
