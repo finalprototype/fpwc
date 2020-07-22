@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  outline: none;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.top, .middle, .bottom {
+  height: 2px;
+  width: 20px;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.top {
+  transform: none;
+  transform-origin: top left;
+  margin-bottom: 5px;
+}
+
+.middle {
+  opacity: 1;
+  transform: none;
+}
+
+.bottom {
+  transform: none;
+  transform-origin: top left;
+  margin-top: 5px;
+}
+
+.active .top {
+  transform: rotate(38deg);
+  width: 22px;
+}
+
+.active .middle {
+  opacity: 0;
+}
+
+.active .bottom {
+  transform: rotate(-38deg);
+  width: 22px;
+}

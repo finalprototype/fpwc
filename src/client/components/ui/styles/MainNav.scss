@@ -1,2 +1,46 @@
-.container {}
-.item {}
+@import '../../../styles/colors';
+
+.container {
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
+}
+
+.menu {
+  @media only screen and (max-width: 600px) {
+    position: absolute;
+    top: -100vw;
+    left: 0;
+    width: 100vw;
+    height: 100vw;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
+    color: #fafafa;
+    transition: top 0.3s ease;
+    z-index: 2;
+    align-items: flex-end;
+    padding-top: 60px;
+    padding-right: 24px;
+    font-size: 20px;
+
+    a {
+      margin: 0;
+    }
+  }
+}
+
+.menuactive {
+  top: 0;
+}
+
+.menubutton {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  z-index: 3;
+
+  @media only screen and (min-width: 600px) {
+    display: none;
+  }
+}
