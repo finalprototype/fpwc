@@ -15,8 +15,14 @@ const SMB: React.FunctionComponent = () => {
         imageFallback={Fallback}
       />
       <PageContent flex>
-        <h1>Super Mario Bros</h1>
-        <h3>JavaScript prototype, written using ImpactJS</h3>
+        <div className={styles.header}>
+          <div className={styles.title}>
+            SUPER MARIO BROS.
+          </div>
+          <div className={styles.subtitle}>
+            A JavaScript prototype
+          </div>
+        </div>
         <div className={styles.description}>
           <p>In 2010, <a href="https://en.wikipedia.org/wiki/Thoughts_on_Flash" target="_blank">Steve Jobs wrote</a> what became the obituary for Flash applications on the web. My company at the time was heavily reliant on Flash for it's advertising and marketing initiatives and were pushing for more projects to be mobile first and iPad optimized. This piece of news, which solidified Flash never coming to iPhones or iPads, sent them into a panic on future development and ideation.</p>
           <p>At the time, I was their lead interactive developer (fancy talk for Flash developer). While I did my best to ease concerns, explaining Javascript was a capable, if only at the time immature, replacement for our flash projects, there was still a hefty amount of skepticism. So it was on me to show them what was possible. I decided to build something in JavaScript that a) everyone was familiar with so there was no confusion in the result, and b) was highly interactive to push the limits at the time. Super Mario Bros was the most obvious choice.</p>

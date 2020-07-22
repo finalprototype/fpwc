@@ -14,8 +14,20 @@ body {
   line-height: 1.4;
   color: $white;
 }
-h1,h2,h3,h4,h5,h6,p {
+p {
   margin: 18px 0;
+}
+a:link {
+  color: $blue;
+  font-weight:bold;
+}
+a:visited {
+  color: $blue;
+  font-weight:bold;
+}
+a:hover {
+  color: $purple-light;
+  font-weight:bold;
 }
 :global {
   #app {
