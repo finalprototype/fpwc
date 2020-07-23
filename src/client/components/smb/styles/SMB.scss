@@ -17,6 +17,7 @@
 .title {
   font-family: 'SuperPlumberBrothers';
   font-size: 96px;
+  line-height: 1.05;
 }
 
 .subtitle {
@@ -27,24 +28,15 @@
   text-align: left;
 }
 
-#canvas {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+.smbcanvas {
+  position: relative;
+  width: 100%;
+  height: auto;
   margin: auto;
   border: 1px solid #555;
 }
 
-#loadgame {
+.loadgame {
   align-self: center;
-  border-radius: 6px;
-  height: 40px;
-  padding: 0.6em;
-  width: 120px;
-  background-color: lightcoral;
-  color: white;
-  border: none;
   white-space: nowrap;
 }
