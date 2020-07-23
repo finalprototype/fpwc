@@ -199,7 +199,12 @@ const config = {
       },
 
       {
-        test: /\.(png|jpe?g|svg|gif)$/,
+        test: /\.svg$/,
+        use: ['@svgr/webpack']
+      },
+
+      {
+        test: /\.(png|jpe?g|gif)$/,
         use: [
           {
             loader: 'url-loader',

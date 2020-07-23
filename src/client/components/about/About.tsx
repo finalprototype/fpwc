@@ -1,5 +1,6 @@
 import React from "react";
 
+import Footer from '../ui/Footer';
 import PageContent from '../ui/PageContent';
 import FmvBackground from '../ui/FmvBackground';
 import Video from '../../videos/sea.mp4';
@@ -19,6 +20,7 @@ const About: React.FunctionComponent = () => {
         <p>Mauris aliquet venenatis augue, sed tempus est ullamcorper vitae. Proin varius faucibus elit sed ultricies. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec mattis nec nisl sit amet volutpat. Nunc ac turpis sed mi vestibulum pellentesque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse accumsan et risus vitae tincidunt. Aliquam metus est, commodo sed vulputate vel, interdum id arcu. Sed fringilla venenatis lacus sit amet fermentum. Pellentesque dolor enim, rhoncus at lacus rutrum, ullamcorper vestibulum turpis. Nulla at dui sit amet massa ultrices tempus.</p>
         <p>Duis ullamcorper quis dui vitae accumsan. Proin ac varius velit. Suspendisse ac magna elementum, elementum sapien eget, commodo neque. Nam id vehicula elit. Aliquam justo erat, auctor eu massa quis, feugiat convallis lectus. Nam imperdiet neque nec velit blandit, quis dictum tortor bibendum. Proin id nisi sem. Quisque condimentum nibh et pretium pellentesque. Proin lectus dui, molestie nec rutrum a, tincidunt gravida nulla. Nam sit amet ipsum sit amet nisl venenatis facilisis. Donec blandit laoreet eros in faucibus. In faucibus semper eleifend. Etiam ullamcorper diam turpis, in fringilla lorem tincidunt ac.</p>
       </PageContent>
+      <Footer />
     </>
   );
 };

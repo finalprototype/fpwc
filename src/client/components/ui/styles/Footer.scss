@@ -1,0 +1,20 @@
+@import '../../../styles/colors';
+
+.container {
+  width: 100%;
+  padding: 8px 20px;
+  text-align: right;
+  pointer-events: none;
+
+  @media only screen and (max-width: 600px) {
+    text-align: center;
+  }
+}
+
+.fixed {
+  position: fixed;
+  z-index: 3;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

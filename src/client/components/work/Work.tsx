@@ -1,5 +1,6 @@
 import React from "react";
 
+import Footer from '../ui/Footer';
 import PageContent from '../ui/PageContent';
 import FmvBackground from '../ui/FmvBackground';
 import Video from '../../videos/drive.mp4';
@@ -15,6 +16,7 @@ const Work: React.FunctionComponent = () => {
       <PageContent flex centered>
         Work
       </PageContent>
+      <Footer fixed />
     </>
   );
 };

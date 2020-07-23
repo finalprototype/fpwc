@@ -1,0 +1,24 @@
+@import '../../../styles/colors';
+
+.container {
+  margin: 0 8px;
+  opacity: 0.3;
+  filter: grayscale(100%);
+  transition: all 0.4s ease-out;
+  pointer-events: all;
+
+  svg {
+    width: 32px;
+    height: 32px;
+
+    @media only screen and (max-width: 600px) {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+  }
+}

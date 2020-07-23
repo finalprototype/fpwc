@@ -1,5 +1,6 @@
 import React from "react";
 
+import Footer from '../ui/Footer';
 import PageContent from '../ui/PageContent';
 import FmvBackground from '../ui/FmvBackground';
 import SynthwaveVideo from '../../videos/synthwave.mp4';
@@ -15,6 +16,7 @@ const Home: React.FunctionComponent = () => {
       <PageContent flex centered>
         - in development -
       </PageContent>
+      <Footer fixed />
     </>
   );
 };
