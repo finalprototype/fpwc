@@ -4,7 +4,7 @@ import Button from '../ui/Button';
 import PageContent from '../ui/PageContent';
 import FmvBackground from '../ui/FmvBackground';
 import Video from '../../videos/smb1.mp4';
-import Fallback from '../../images/fallback-smb1.jpg';
+import Fallback from '../../images/fallback-smb1-min.jpg';
 
 import styles from './styles/SMB.scss';
 

@@ -1,10 +1,17 @@
-.container {
-  position: relative;
-  display: flex;
-  width: 100%;
-  height: 100%;
+.smb2badge {
+  padding: 10px 20px;
+  margin-bottom: 12px;
+  border-radius: 20px;
+  border: 10px outset #b72504;
+  background-color: #6185f8;
+  font-family: 'SuperPlumberBrothers';
+  line-height: 1.2;
+}
 
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+.smb2badgetitle {
+  font-size: 32px;
+}
+
+.smb2badgesubtitle {
+  font-size: 24px;
 }

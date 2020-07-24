@@ -3,8 +3,8 @@ import React from "react";
 import Footer from '../ui/Footer';
 import PageContent from '../ui/PageContent';
 import FmvBackground from '../ui/FmvBackground';
-import Video from '../../videos/drive.mp4';
-import Fallback from '../../images/fallback-drive.jpg';
+import Video from '../../videos/synthwave.mp4';
+import Fallback from '../../images/fallback-synthwave-min.jpg';
 
 const Work: React.FunctionComponent = () => {
   return (
@@ -14,7 +14,7 @@ const Work: React.FunctionComponent = () => {
         imageFallback={Fallback}
       />
       <PageContent flex centered>
-        Work
+        - in development -
       </PageContent>
       <Footer fixed />
     </>
