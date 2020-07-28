@@ -1,6 +1,7 @@
 .DS_Store
 .npmrc
 .nvmrc
+.eslintcache
 .sass-cache
 .env*
 npm-debug.log

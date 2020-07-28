@@ -1,0 +1,4 @@
+*!(/src)
+*!(/src/vendor)
+*!(*.js|*.ts|*.tsx)
+**/node_modules/**

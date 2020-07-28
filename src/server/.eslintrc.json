@@ -1,0 +1,14 @@
+{
+  "extends": ["airbnb"],
+  "env": {
+    "node": true,
+    "jest/globals": true
+  },
+  "plugins": [
+    "jest"
+  ],
+  "rules": {
+    "jest/no-focused-tests": "error",
+    "linebreak-style": 0
+  }
+}
