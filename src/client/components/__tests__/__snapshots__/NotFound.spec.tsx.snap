@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound renders 1`] = `
+<FmvBackground
+  imageFallback="mock-file"
+  videoSource="mock-file"
+>
+  <PageContent
+    centered={true}
+    flex={true}
+    full={false}
+  >
+    <div
+      className="title"
+    >
+      404
+    </div>
+    <div
+      className="subtitle"
+    >
+      (redirecting in 
+      5
+      )
+    </div>
+    <br />
+    <img
+      alt=""
+      className="hero"
+      src="mock-file"
+    />
+  </PageContent>
+</FmvBackground>
+`;

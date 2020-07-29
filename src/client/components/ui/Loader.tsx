@@ -14,8 +14,8 @@ const Loader: React.FunctionComponent<Props> = (props: Props) => {
   const {
     className,
     inline,
-    size = 64,
-    color = '#fff',
+    size,
+    color,
   } = props;
 
   const containerClasses = classNames(
