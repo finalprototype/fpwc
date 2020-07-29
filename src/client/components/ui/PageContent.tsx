@@ -4,10 +4,11 @@ import cx from "classnames";
 import styles from "./styles/PageContent.scss";
 
 interface Props {
-  flex?: boolean;
   centered?: boolean;
-  children?: React.ReactNode;
+  flex?: boolean;
   full?: boolean;
+  children?: React.ReactNode;
+  Sidebar?: React.ReactNode;
   className?: string;
 }
 
@@ -20,9 +21,20 @@ const PageContent: React.FunctionComponent<Props> = (props: Props) => {
     props.className,
   );
 
+  const content = !props.Sidebar
+    ? props.children
+    : (<>
+      <div className={styles.sidebar}>
+        {props.Sidebar}
+      </div>
+      <div className={styles.content}>
+        {props.children}
+      </div>
+    </>);
+
   return (
     <div className={containerClasses}>
-      {props.children}
+      {content}
     </div>
   );
 }

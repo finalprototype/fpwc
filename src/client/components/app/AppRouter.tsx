@@ -1,11 +1,11 @@
-import React from "react";
+import React, { lazy } from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 
-import Home from '../home/Home';
-import About from '../about/About';
-import Work from '../work/Work';
-import SMB from '../smb/SMB';
-import NotFound from '../NotFound';
+const Home = lazy(() => import('../home/Home'));
+const About = lazy(() => import('../about/About'));
+const Work = lazy(() => import('../work/Work'));
+const SMB = lazy(() => import('../smb/SMB'));
+const NotFound = lazy(() => import('../NotFound'));
 
 const AppRouter: React.FunctionComponent = () => {
   return (

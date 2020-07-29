@@ -15,8 +15,14 @@ module.exports = async (req, res) => {
     manifest,
     env: settings.ENV_NAME,
     version,
+    assets_path: settings.ASSETS_URL_PATH,
+    fonts: [
+      `${settings.ASSETS_URL_PATH}neonavy3d.woff2`,
+      `${settings.ASSETS_URL_PATH}Fatya.woff2`,
+      `${settings.ASSETS_URL_PATH}SuperPlumberBrothers.woff2`,
+      `${settings.ASSETS_URL_PATH}Roboto-Condensed.woff2`,
+    ]
   };
-
 
   const viewParams = {
     bootstrap: escapeHTML(JSON.stringify(config)),

@@ -1,4 +1,5 @@
 const env = require("env-var");
+const version = require('../../package.json').version;
 
 const LOCAL = "local";
 const TEST = "test";
@@ -10,9 +11,19 @@ const ENV_NAME = env
   .required()
   .asEnum([LOCAL, TEST, DEVELOPMENT, PRODUCTION]);
 
+const ASSETS_CDN_URL = env
+  .get("ASSETS_CDN_URL")
+  .required()
+  .asString();
+
 const DEPLOYED = ENV_NAME === DEVELOPMENT || ENV_NAME === PRODUCTION;
+
+const ASSETS_URL_PATH = ENV_NAME !== PRODUCTION
+  ? ASSETS_CDN_URL
+  : `${ASSETS_CDN_URL}${version}/`
 
 module.exports = {
   ENV_NAME,
   DEPLOYED,
+  ASSETS_URL_PATH
 };

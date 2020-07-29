@@ -1,0 +1,17 @@
+@mixin hideScrollbars() {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+}
+
+@mixin scrollable($xoverflow: hidden, $yoverflow: auto) {
+  overflow-x: $xoverflow;
+  overflow-y: $yoverflow;
+  -webkit-backface-visibility: hidden;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}

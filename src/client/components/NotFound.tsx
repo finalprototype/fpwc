@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import PageContent from './ui/PageContent';
 import FmvBackground from './ui/FmvBackground';
 import Video from '../videos/glitch.mp4';
-import SynthwaveFallback from '../images/fallback-synthwave.jpg';
+import SynthwaveFallback from '../images/bkgds/synthwave.jpg';
 import styles from "./styles/NotFound.scss";
 import DeadLink from "../images/dead_link.png";
 
@@ -29,11 +29,10 @@ const NotFound: React.FunctionComponent<Props> = (props: Props) => {
   }, [count]);
 
   return (
-    <>
-      <FmvBackground
-        videoSource={Video}
-        imageFallback={SynthwaveFallback}
-      />
+    <FmvBackground
+      videoSource={Video}
+      imageFallback={SynthwaveFallback}
+    >
       <PageContent flex centered>
         <div className={styles.title}>
           404
@@ -44,7 +43,7 @@ const NotFound: React.FunctionComponent<Props> = (props: Props) => {
         <br />
         <img className={styles.hero} src={DeadLink} />
       </PageContent>
-    </>
+    </FmvBackground>
   );
 };
 

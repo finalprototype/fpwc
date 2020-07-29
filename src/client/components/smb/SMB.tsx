@@ -4,7 +4,7 @@ import Button from '../ui/Button';
 import PageContent from '../ui/PageContent';
 import FmvBackground from '../ui/FmvBackground';
 import Video from '../../videos/smb1.mp4';
-import Fallback from '../../images/fallback-smb1-min.jpg';
+import Fallback from '../../images/bkgds/smb.jpg';
 
 import styles from './styles/SMB.scss';
 
@@ -40,12 +40,16 @@ const SMB: React.FunctionComponent<Props> = (props: Props) => {
   }, [gameInit]);
 
   return (
-    <>
-      <FmvBackground
-        videoSource={Video}
-        imageFallback={Fallback}
-      />
-      <PageContent flex centered={gameInit} full={gameInit}>
+    <FmvBackground
+      videoSource={Video}
+      imageFallback={Fallback}
+    >
+      <PageContent
+        className={styles.container}
+        centered={gameInit}
+        full={gameInit}
+        flex
+      >
         {gameInit && (
           <canvas id="canvas" className={styles.smbcanvas}></canvas>
         )}
@@ -77,7 +81,7 @@ const SMB: React.FunctionComponent<Props> = (props: Props) => {
           </>
         )}
       </PageContent>
-    </>
+    </FmvBackground>
   );
 };
 

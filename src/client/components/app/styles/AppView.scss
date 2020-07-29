@@ -8,6 +8,18 @@
   width: 100%;
   max-width: 100%;
   pointer-events: none;
+
+  &:before {
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient($black, transparent);
+    pointer-events: none;
+  }
 }
 
 .nav {
@@ -28,24 +40,5 @@
   z-index: 1;
   height: 100%;
   min-height: 100%;
-  max-height: 100%;
   width: 100%;
-  overflow: auto;
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-backface-visibility: hidden;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-
-  &:before {
-    content: '';
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 2;
-    width: 100%;
-    height: 200px;
-    background: linear-gradient($black, transparent);
-    pointer-events: none;
-  }
 }

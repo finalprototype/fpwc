@@ -19,7 +19,7 @@ const DIR_TYPES = path.resolve(__dirname, 'src', '@types');
 const DIR_OUTPUT = path.resolve(__dirname, 'build');
 
 const publicPath = DEVELOPMENT
-  ? `http://fpwc.io:${process.env.PORT_ASSETS}/`
+  ? `${process.env.ASSETS_CDN_URL}`
   : `${process.env.ASSETS_CDN_URL}${version}/`;
 
 const config = {
