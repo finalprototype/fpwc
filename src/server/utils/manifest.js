@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require('fs');
 
 let manifest = null;
 const manifestFilePath = `${__dirname}/../../../build/manifest.json`;

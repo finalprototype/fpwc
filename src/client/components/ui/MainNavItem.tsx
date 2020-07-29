@@ -18,19 +18,19 @@ const MainNavItem: React.FunctionComponent<Props> = (props: Props) => {
     route,
     isActive,
     onClick,
-    className
+    className,
   } = props;
 
   const renderActiveBar = !isActive
     ? null
     : (
-      <div className={styles.activebar}></div>
+      <div className={styles.activebar} />
     );
 
   const containerClasses = classnames(
     styles.container,
-    props.className,
-   );
+    className,
+  );
 
   const labelClasses = classnames(
     styles.label,
@@ -39,14 +39,20 @@ const MainNavItem: React.FunctionComponent<Props> = (props: Props) => {
 
   return (
     <Link
-      to={props.route}
+      to={route}
       className={containerClasses}
-      onClick={onClick || undefined}
+      onClick={onClick}
     >
       <div className={labelClasses}>{label}</div>
       {renderActiveBar}
     </Link>
   );
+};
+
+MainNavItem.defaultProps = {
+  className: undefined,
+  isActive: false,
+  onClick: undefined,
 };
 
 export default MainNavItem;

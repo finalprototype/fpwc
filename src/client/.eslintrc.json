@@ -25,7 +25,12 @@
     "ecmaVersion": 2018
   },
   "rules": {
-    "react-hooks/rules-of-hooks": "error",
-    "linebreak-style": 0
+    "@typescript-eslint/no-non-null-assertion": 0,
+    "import/prefer-default-export": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "react/jsx-wrap-multilines": 0,
+    "react-hooks/rules-of-hooks": 2,
+    "linebreak-style": 0,
+    "prefer-destructuring": 0
   }
 }

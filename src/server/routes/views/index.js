@@ -1,10 +1,8 @@
-const express = require("express");
-const mainRoute = require("./main");
-const smb1Route = require("./smb1");
-const getManifest = require("../../utils/manifest");
+const express = require('express');
+const mainRoute = require('./main');
 
 const router = new express.Router();
 
-router.get("*", mainRoute);
+router.get('*', mainRoute);
 
 module.exports = router;
