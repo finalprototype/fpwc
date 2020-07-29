@@ -78,6 +78,7 @@
   "scripts": {
     "typecheck": "./node_modules/.bin/tsc",
     "eslint": "eslint --cache --color \"./src/**/*.*(js|ts|tsx)\"",
+    "lint": "npm run typecheck && npm run eslint",
     "test": "NODE_ENV=test ENV_NAME=test jest --runInBand",
     "check": "npm run typecheck && npm run test",
     "start": "node -r ./src/server/index.js",

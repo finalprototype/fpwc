@@ -28,37 +28,31 @@ const Footer: React.FunctionComponent<Props> = (props: Props) => {
     <div className={containerClasses}>
       <SocialLink
         url="https://www.linkedin.com/in/nickwritescode/"
-        title="Linkedin"
       >
         <IconLinkedin />
       </SocialLink>
       <SocialLink
         url="https://github.com/finalprototype"
-        title="Github"
       >
         <IconGithub />
       </SocialLink>
       <SocialLink
         url="https://www.twitch.tv/fp__"
-        title="Twitch"
       >
         <IconTwitch />
       </SocialLink>
       <SocialLink
         url="https://twitter.com/finalprototype"
-        title="Twitter"
       >
         <IconTwitter />
       </SocialLink>
       <SocialLink
         url="https://www.instagram.com/fp___x/"
-        title="Instagram"
       >
         <IconInstagram />
       </SocialLink>
       <SocialLink
         url="mailto:fpwritescode@gmail.com"
-        title="Email"
       >
         <IconEmail />
       </SocialLink>

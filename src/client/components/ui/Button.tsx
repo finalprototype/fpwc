@@ -13,7 +13,7 @@ export const types = ['normal', 'neon'];
 type Type = typeof types[number];
 
 interface Props {
-  onClick: (value: { [key: string]: string }) => void;
+  onClick: (value: { [key: string]: string|number|null }) => void;
   size?: Size;
   color?: Color;
   type?: Type;
@@ -41,18 +41,20 @@ const Button: React.FunctionComponent<Props> = (props: Props) => {
 
   const handleClick = (evt: MouseEvent<HTMLButtonElement>) => {
     evt.preventDefault();
-    let targetValue = evt.target.value;
-    const valueAsInt = parseInt(targetValue, 10);
-
-    if (!targetValue) {
-      targetValue = null;
+    const target = evt.target as HTMLButtonElement;
+    if (!target.value) {
+      onClick({ [name!]: null });
+      return;
     }
-    if (!Number.isNaN(valueAsInt) && valueAsInt.toString() === targetValue) {
-      targetValue = valueAsInt;
+
+    let responseValue: string|number = target.value;
+    const valueAsInt = parseInt(target.value, 10);
+    if (!Number.isNaN(valueAsInt) && valueAsInt.toString() === target.value) {
+      responseValue = valueAsInt;
     }
 
     onClick({
-      [name!]: targetValue,
+      [name!]: responseValue,
     });
   };
 

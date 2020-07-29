@@ -34,7 +34,7 @@ const MainNav: React.FunctionComponent<Props> = (props: Props) => {
     <>
       <MobileNavButton
         className={styles.menubutton}
-        active={menuActive}
+        active={menuActive || false}
         onClick={() => changeMenuState(!menuActive)}
       />
       <div className={containerClasses}>
