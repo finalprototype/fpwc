@@ -17,11 +17,13 @@ interface Props {
 }
 
 const Footer: React.FunctionComponent<Props> = (props: Props) => {
+  const { fixed, className } = props;
   const containerClasses = classnames(
     styles.container,
-    { [styles.fixed]: props.fixed },
-    props.className
+    { [styles.fixed]: fixed },
+    className,
   );
+
   return (
     <div className={containerClasses}>
       <SocialLink
@@ -35,6 +37,12 @@ const Footer: React.FunctionComponent<Props> = (props: Props) => {
         title="Github"
       >
         <IconGithub />
+      </SocialLink>
+      <SocialLink
+        url="https://www.twitch.tv/fp__"
+        title="Twitch"
+      >
+        <IconTwitch />
       </SocialLink>
       <SocialLink
         url="https://twitter.com/finalprototype"
@@ -56,6 +64,11 @@ const Footer: React.FunctionComponent<Props> = (props: Props) => {
       </SocialLink>
     </div>
   );
+};
+
+Footer.defaultProps = {
+  fixed: false,
+  className: undefined,
 };
 
 export default Footer;

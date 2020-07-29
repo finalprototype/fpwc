@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export const useImagePreload = (src) => {  
+export const useImagePreload = (src: string): string|null => {
   const [sourceLoaded, setSourceLoaded] = useState(null);
 
   useEffect(() => {
@@ -12,13 +12,13 @@ export const useImagePreload = (src) => {
   return sourceLoaded;
 };
 
-export const useVideoPreload = (src) => {  
+export const useVideoPreload = (src: string): string|null => {
   const [sourceLoaded, setSourceLoaded] = useState(null);
 
   useEffect(() => {
     const vid = document.createElement('video');
     vid.src = src;
-    vid.oncanplaythrough  = () => setSourceLoaded(src);
+    vid.oncanplaythrough = () => setSourceLoaded(src);
   }, [src]);
 
   return sourceLoaded;

@@ -1,21 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
 
+import { history } from './app/AppHistory';
 import PageContent from './ui/PageContent';
 import FmvBackground from './ui/FmvBackground';
+
+import DeadLink from '../images/dead_link.png';
 import Video from '../videos/glitch.mp4';
 import SynthwaveFallback from '../images/bkgds/synthwave.jpg';
-import styles from "./styles/NotFound.scss";
-import DeadLink from "../images/dead_link.png";
 
-interface Props {
-  seconds?: number;
-}
+import styles from './styles/NotFound.scss';
 
-const NotFound: React.FunctionComponent<Props> = (props: Props) => {
-  const { seconds = 5 } = props;
-  const [count, setCount] = useState(seconds);
-  const history = useHistory();
+const NotFound: React.FunctionComponent = () => {
+  const redirectSeconds = 5;
+  const [count, setCount] = useState(redirectSeconds);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -41,7 +38,11 @@ const NotFound: React.FunctionComponent<Props> = (props: Props) => {
           (redirecting in {count})
         </div>
         <br />
-        <img className={styles.hero} src={DeadLink} />
+        <img
+          className={styles.hero}
+          src={DeadLink}
+          alt=""
+        />
       </PageContent>
     </FmvBackground>
   );

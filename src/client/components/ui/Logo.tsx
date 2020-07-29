@@ -4,12 +4,12 @@ import classnames from 'classnames';
 import styles from './styles/Logo.scss';
 
 interface Props {
-  isRestarting?: boolean;
   className?: string;
 }
 
 const Logo: React.FunctionComponent<Props> = (props: Props) => {
-  const [isRestarting, restartAnimState] = useState(props.isRestarting);
+  const { className } = props;
+  const [isRestarting, restartAnimState] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -20,11 +20,11 @@ const Logo: React.FunctionComponent<Props> = (props: Props) => {
     return () => clearTimeout(timer);
   }, [isRestarting]);
 
-  const containerClasses = classnames(styles.container, props.className);
+  const containerClasses = classnames(styles.container, className);
   const neonClasses = classnames(
     styles.forgroundline,
-    { [styles.neon]: !isRestarting }
-   );
+    { [styles.neon]: !isRestarting },
+  );
 
   const scriptText = (
     <>
@@ -50,6 +50,7 @@ const Logo: React.FunctionComponent<Props> = (props: Props) => {
       <button
         onClick={() => restartAnimState(true)}
         className={styles.secondary}
+        type="button"
       >
         <div className={styles.backgroundline}>
           {scriptText}
@@ -60,6 +61,10 @@ const Logo: React.FunctionComponent<Props> = (props: Props) => {
       </button>
     </div>
   );
+};
+
+Logo.defaultProps = {
+  className: undefined,
 };
 
 export default Logo;

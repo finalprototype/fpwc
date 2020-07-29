@@ -6,34 +6,42 @@ import styles from './styles/SocialLink.scss';
 interface Props {
   title: string;
   url?: string;
-  onClick?: Function;
-  children: any;
+  onClick?: () => void;
+  children: React.ReactNode;
   className?: string;
 }
 
 const SocialLink: React.FunctionComponent<Props> = (props: Props) => {
   const {
-    url = '#',
-    onClick = () => {},
+    url,
+    onClick,
     title,
     children,
-    className
+    className,
   } = props;
 
   const containerClasses = classnames(
     styles.container,
-    className
+    className,
   );
 
   return (
     <a
       href={url || '#'}
+      alt={title}
       target={url ? '_blank' : ''}
+      onClick={onClick}
       className={containerClasses}
     >
       {children}
     </a>
   );
+};
+
+SocialLink.defaultProps = {
+  url: '#',
+  className: undefined,
+  onClick: () => {},
 };
 
 export default SocialLink;

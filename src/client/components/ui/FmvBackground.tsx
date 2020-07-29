@@ -2,33 +2,30 @@ import React from 'react';
 
 import {
   useImagePreload,
-  useVideoPreload
+  useVideoPreload,
 } from '../../hooks/preloadHooks';
 
 import styles from './styles/FmvBackground.scss';
 
 interface Props {
-  videoSource: any;
-  imageFallback: any;
+  videoSource: string;
+  imageFallback: string;
   children?: React.ReactNode;
 }
 
 const FmvBackground: React.FunctionComponent<Props> = (props: Props) => {
-  const videoLoaded = useVideoPreload(props.videoSource);
-  const fallbackLoaded = useImagePreload(props.imageFallback);
-  const renderChildren = videoLoaded && props.children;
-
-  console.log('videoLoaded', videoLoaded);
-  console.log('fallbackLoaded', fallbackLoaded);
-  console.log('---');
+  const { videoSource, imageFallback, children } = props;
+  const videoLoaded = useVideoPreload(videoSource);
+  const fallbackLoaded = useImagePreload(imageFallback);
+  const renderChildren = videoLoaded && children;
 
   return (
     <>
       <div
         className={styles.container}
         style={{
-          backgroundImage: fallbackLoaded ? `url('${props.imageFallback}')` : 'none';
-          opacity: fallbackLoaded ? 1 : 0;
+          backgroundImage: fallbackLoaded ? `url('${imageFallback}')` : 'none',
+          opacity: fallbackLoaded ? 1 : 0,
         }}
       >
         <video
@@ -37,15 +34,19 @@ const FmvBackground: React.FunctionComponent<Props> = (props: Props) => {
           autoPlay
           muted
           style={{
-            opacity: videoLoaded ? 1 : 0;
+            opacity: videoLoaded ? 1 : 0,
           }}
         >
-          <source src={props.videoSource} type="video/mp4" />
+          <source src={videoSource} type="video/mp4" />
         </video>
       </div>
       {renderChildren || null}
     </>
   );
-}
+};
+
+FmvBackground.defaultProps = {
+  children: undefined,
+};
 
 export default FmvBackground;

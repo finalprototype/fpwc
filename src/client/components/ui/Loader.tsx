@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import styles from './styles/Loader.scss'
+import styles from './styles/Loader.scss';
 
 interface Props {
   color?: string;
@@ -15,23 +15,13 @@ const Loader: React.FunctionComponent<Props> = (props: Props) => {
     className,
     inline,
     size = 64,
-    color = '#fff'
+    color = '#fff',
   } = props;
-
-  const circles = [...Array(2)].map((v, index) => (
-    <div
-      key={index}
-      style={{
-        borderColor: `${color}`,
-        borderWidth: size * 0.05,
-      }}
-    />
-  ));
 
   const containerClasses = classNames(
     styles.container,
     { [styles.inline]: inline },
-    className
+    className,
   );
 
   return (
@@ -39,9 +29,27 @@ const Loader: React.FunctionComponent<Props> = (props: Props) => {
       className={containerClasses}
       style={{ width: `${size}px`, height: `${size}px` }}
     >
-      {circles}
+      <div
+        style={{
+          borderColor: `${color}`,
+          borderWidth: size * 0.05,
+        }}
+      />
+      <div
+        style={{
+          borderColor: `${color}`,
+          borderWidth: size * 0.05,
+        }}
+      />
     </div>
-  )
-}
+  );
+};
+
+Loader.defaultProps = {
+  color: '#ffffff',
+  inline: false,
+  size: 64,
+  className: undefined,
+};
 
 export default Loader;

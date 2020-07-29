@@ -1,7 +1,7 @@
-import React from "react";
-import cx from "classnames";
+import React from 'react';
+import cx from 'classnames';
 
-import styles from "./styles/PageContent.scss";
+import styles from './styles/PageContent.scss';
 
 interface Props {
   centered?: boolean;
@@ -13,30 +13,50 @@ interface Props {
 }
 
 const PageContent: React.FunctionComponent<Props> = (props: Props) => {
+  const {
+    centered,
+    flex,
+    full,
+    children,
+    Sidebar,
+    className,
+  } = props;
+
   const containerClasses = cx(
     styles.container,
-    { [styles.flex]: props.flex },
-    { [styles.centered]: props.centered },
-    { [styles.full]: props.full },
-    props.className,
+    { [styles.flex]: flex },
+    { [styles.centered]: centered },
+    { [styles.full]: full },
+    className,
   );
 
-  const content = !props.Sidebar
-    ? props.children
-    : (<>
-      <div className={styles.sidebar}>
-        {props.Sidebar}
-      </div>
-      <div className={styles.content}>
-        {props.children}
-      </div>
-    </>);
+  const content = !Sidebar
+    ? children
+    : (
+      <>
+        <div className={styles.sidebar}>
+          {Sidebar}
+        </div>
+        <div className={styles.content}>
+          {children}
+        </div>
+      </>
+    );
 
   return (
     <div className={containerClasses}>
       {content}
     </div>
   );
-}
+};
+
+PageContent.defaultProps = {
+  centered: false,
+  flex: false,
+  full: false,
+  children: undefined,
+  className: undefined,
+  Sidebar: undefined,
+};
 
 export default PageContent;

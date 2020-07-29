@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { MouseEvent } from 'react';
 import classNames from 'classnames';
 
 import styles from './styles/Button.scss';
@@ -13,90 +13,84 @@ export const types = ['normal', 'neon'];
 type Type = typeof types[number];
 
 interface Props {
-  onClick: (value: { [key: string]: string }) => void,
-  size?: Size,
-  color?: Color,
-  type?: Type,
-  disabled?: boolean,
-  block?: boolean,
-  children?: string,
-  name?: string,
-  value?: string,
-  className?: string
+  onClick: (value: { [key: string]: string }) => void;
+  size?: Size;
+  color?: Color;
+  type?: Type;
+  disabled?: boolean;
+  block?: boolean;
+  name?: string;
+  value?: string;
+  className?: string;
+  children: React.ReactNode | string;
 }
 
-class Button extends PureComponent<Props> {
-  static displayName: string = 'Button';
+const Button: React.FunctionComponent<Props> = (props: Props) => {
+  const {
+    disabled,
+    size,
+    color,
+    type,
+    block,
+    children,
+    className,
+    name,
+    value,
+    onClick,
+  } = props;
 
-  static defaultProps: Partial<Props> = {
-    size: 'medium',
-    disabled: false,
-    color: 'blue',
-    type: 'normal',
-    name: 'button',
-    block: false
-  };
-
-  constructor(props: Props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(evt: any) {
+  const handleClick = (evt: MouseEvent<HTMLButtonElement>) => {
     evt.preventDefault();
-    let value = evt.target.value;
-    const valueAsInt = parseInt(value, 10);
+    let targetValue = evt.target.value;
+    const valueAsInt = parseInt(targetValue, 10);
 
-    if (!value) value = null;
-    if (
-      !isNaN(valueAsInt) &&
-      valueAsInt.toString() === value
-    ) {
-      value = valueAsInt;
+    if (!targetValue) {
+      targetValue = null;
+    }
+    if (!Number.isNaN(valueAsInt) && valueAsInt.toString() === targetValue) {
+      targetValue = valueAsInt;
     }
 
-    this.props.onClick({
-      [this.props.name!]: value,
+    onClick({
+      [name!]: targetValue,
     });
-  }
+  };
 
-  render() {
-    const {
-      disabled,
-      size,
-      color,
-      type,
-      block,
-      children,
-      className,
-      name,
-      value,
-    } = this.props;
+  const buttonClass = classNames(
+    styles.button,
+    styles[size!],
+    styles[color!],
+    styles[type!],
+    {
+      [styles.block]: block,
+      [styles.disabled]: disabled,
+    },
+    className,
+  );
 
-    const buttonClass = classNames(
-      styles.button,
-      styles[size!],
-      styles[color!],
-      styles[type!],
-      {
-        [styles.block]: block,
-        [styles.disabled]: disabled,
-      },
-      className
-    );
+  return (
+    <button
+      className={buttonClass}
+      disabled={disabled}
+      onClick={handleClick}
+      name={name}
+      value={value}
+      type="button"
+    >
+      {children}
+    </button>
+  );
+};
 
-    return (
-      <button
-        className={buttonClass}
-        disabled={disabled}
-        onClick={this.handleClick}
-        name={name}
-        value={value}
-      >
-        {children}
-      </button>
-    );
-  }
-}
+Button.defaultProps = {
+  size: 'medium',
+  disabled: false,
+  color: 'blue',
+  type: 'normal',
+  name: 'button',
+  block: false,
+  value: undefined,
+  className: undefined,
+};
 
 export default Button;
