@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader renders default props 1`] = `
+<div
+  className="container"
+  style={
+    Object {
+      "height": "64px",
+      "width": "64px",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "borderColor": "#ffffff",
+        "borderWidth": 3.2,
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "borderColor": "#ffffff",
+        "borderWidth": 3.2,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Loader renders with custom props 1`] = `
+<div
+  className="container"
+  style={
+    Object {
+      "height": "24px",
+      "width": "24px",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "borderColor": "#336699",
+        "borderWidth": 1.2000000000000002,
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "borderColor": "#336699",
+        "borderWidth": 1.2000000000000002,
+      }
+    }
+  />
+</div>
+`;
