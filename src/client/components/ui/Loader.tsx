@@ -10,14 +10,12 @@ interface Props {
   className?: string;
 }
 
-const Loader: React.FunctionComponent<Props> = (props: Props) => {
-  const {
-    className,
-    inline,
-    size,
-    color,
-  } = props;
-
+const Loader: React.FunctionComponent<Props> = ({
+  color = '#ffffff',
+  inline = false,
+  size = 64,
+  className = undefined,
+}: Props) => {
   const containerClasses = classNames(
     styles.container,
     { [styles.inline]: inline },
@@ -43,13 +41,6 @@ const Loader: React.FunctionComponent<Props> = (props: Props) => {
       />
     </div>
   );
-};
-
-Loader.defaultProps = {
-  color: '#ffffff',
-  inline: false,
-  size: 64,
-  className: undefined,
 };
 
 export default Loader;

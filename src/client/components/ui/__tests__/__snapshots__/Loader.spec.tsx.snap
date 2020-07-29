@@ -28,3 +28,32 @@ exports[`Loader renders default props 1`] = `
   />
 </div>
 `;
+
+exports[`Loader renders with custom props 1`] = `
+<div
+  className="container"
+  style={
+    Object {
+      "height": "24px",
+      "width": "24px",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "borderColor": "#336699",
+        "borderWidth": 1.2000000000000002,
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "borderColor": "#336699",
+        "borderWidth": 1.2000000000000002,
+      }
+    }
+  />
+</div>
+`;
