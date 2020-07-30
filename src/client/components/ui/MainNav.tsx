@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import classnames from 'classnames';
 
-import MainNavItem from './MainNavItem';
+import NavItem from './NavItem';
 import MobileNavButton from './MobileNavButton';
 import styles from './styles/MainNav.scss';
 
@@ -38,28 +38,28 @@ const MainNav: React.FunctionComponent<Props> = (props: Props) => {
         onClick={() => changeMenuState(!menuActive)}
       />
       <div className={containerClasses}>
-        <MainNavItem
+        <NavItem
           label="Home"
           route="/home"
           className={styles.item}
           isActive={location.pathname.includes('/home')}
           onClick={() => changeMenuState(false)}
         />
-        <MainNavItem
+        <NavItem
           label="About"
           route="/about"
           className={styles.item}
           isActive={location.pathname.includes('/about')}
           onClick={() => changeMenuState(false)}
         />
-        <MainNavItem
+        <NavItem
           label="Work"
           route="/work"
           className={styles.item}
           isActive={location.pathname.includes('/work')}
           onClick={() => changeMenuState(false)}
         />
-        <MainNavItem
+        <NavItem
           label="SMB"
           route="/smb"
           className={styles.item}

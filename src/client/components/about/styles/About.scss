@@ -1,3 +1,17 @@
 .container {
   position: relative;
 }
+
+.content {
+  position: relative;
+
+  h1, h2 {
+    text-transform: uppercase;
+  }
+
+  section {
+    &:not(last-child) {
+      margin-bottom: 2em;
+    }
+  }
+}

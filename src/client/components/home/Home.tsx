@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import Footer from '../ui/Footer';
 import PageContent from '../ui/PageContent';
 import FmvBackground from '../ui/FmvBackground';
-import Video from '../../videos/smb2-cut.mp4';
-import Fallback from '../../images/bkgds/360/smb2.jpg';
+import Video from '../../videos/smb2.mp4';
+import Fallback from '../../images/bkgds/360/smb2-min.jpg';
 
 import styles from './styles/Home.scss';
 
