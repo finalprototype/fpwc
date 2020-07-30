@@ -77,7 +77,6 @@ const config = {
 
   plugins: [
     new CleanWebpackPlugin({
-      verbose: true,
       protectWebpackAssets: false
     }),
 
@@ -110,8 +109,9 @@ const config = {
     new WebpackManifestPlugin({
       writeToFileEmit: true,
       map: (file) => {
-        // clean keys to not include hashes
-        file.name = file.name.replace(/\.[a-f0-9]{20}\.js/, '.js');
+        file.name = file.path
+          .replace(publicPath, '')
+          .replace(/\.[a-f0-9]{20,}\./, '.');
         return file;
       }
     })
