@@ -13,7 +13,8 @@ const AppRouter: React.FunctionComponent = () => (
     <Route path="/home">
       <Home />
     </Route>
-    <Route exact path="/about">
+    <Redirect exact from="/about" to="/about/me" />
+    <Route exact path="/about/:section">
       <About />
     </Route>
     <Route exact path="/work">

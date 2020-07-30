@@ -1,3 +1,5 @@
+const filter = require('lodash/filter');
+
 const settings = require('../../settings');
 const getManifest = require('../../utils/manifest');
 const { version } = require('../../../../package.json');
@@ -14,12 +16,7 @@ module.exports = async (req, res) => {
     env: settings.ENV_NAME,
     version,
     assets_path: settings.ASSETS_URL_PATH,
-    fonts: [
-      `${settings.ASSETS_URL_PATH}neonavy3d.woff2`,
-      `${settings.ASSETS_URL_PATH}Fatya.woff2`,
-      `${settings.ASSETS_URL_PATH}SuperPlumberBrothers.woff2`,
-      `${settings.ASSETS_URL_PATH}Roboto-Condensed.woff2`,
-    ],
+    fonts: filter(manifest, (v, k) => k.includes('.woff2')),
   };
 
   const viewParams = {

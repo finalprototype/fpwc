@@ -7,26 +7,26 @@
 }
 
 @font-face {
-  font-family: 'Roboto Condensed';
+  font-family: 'Oswald Light';
   font-style: normal;
   font-weight: normal;
-  src: local('Roboto Condensed'),
-    url('../fonts/Roboto-Condensed.woff2') format('woff2'),
-    url('../fonts/Roboto-Condensed.woff') format('woff');
+  src: local('Oswald Light'),
+    url('../fonts/oswald.woff2') format('woff2'),
+    url('../fonts/oswald.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Fatya';
   font-style: normal;
   font-weight: normal;
-  src: url('../fonts/Fatya.woff2') format('woff2'),
-    url('../fonts/Fatya.woff') format('woff');
+  src: url('../fonts/fatya.woff2') format('woff2'),
+    url('../fonts/fatya.woff') format('woff');
 }
 
 @font-face {
   font-family: 'SuperPlumberBrothers';
   font-style: normal;
   font-weight: normal;
-  src: url('../fonts/SuperPlumberBrothers.woff2') format('woff2'),
-    url('../fonts/SuperPlumberBrothers.woff') format('woff');
+  src: url('../fonts/smb.woff2') format('woff2'),
+    url('../fonts/smb.woff') format('woff');
 }

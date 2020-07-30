@@ -6,7 +6,7 @@ import FmvBackground from './ui/FmvBackground';
 
 import DeadLink from '../images/dead_link.png';
 import Video from '../videos/glitch.mp4';
-import SynthwaveFallback from '../images/bkgds/synthwave.jpg';
+import SynthwaveFallback from '../images/bkgds/360/synthwave-min.jpg';
 
 import styles from './styles/NotFound.scss';
 
