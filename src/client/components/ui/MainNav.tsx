@@ -37,7 +37,11 @@ const MainNav: React.FunctionComponent<Props> = (props: Props) => {
         active={menuActive || false}
         onClick={() => changeMenuState(!menuActive)}
       />
-      <div className={containerClasses}>
+      <button
+        className={containerClasses}
+        onClick={() => changeMenuState(false)}
+        type="button"
+      >
         <NavItem
           label="Home"
           route="/home"
@@ -66,7 +70,7 @@ const MainNav: React.FunctionComponent<Props> = (props: Props) => {
           isActive={location.pathname.includes('/smb')}
           onClick={() => changeMenuState(false)}
         />
-      </div>
+      </button>
     </>
   );
 };

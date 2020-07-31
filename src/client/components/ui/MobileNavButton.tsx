@@ -23,9 +23,9 @@ const MobileNavButton: React.FunctionComponent<Props> = (props: Props) => {
       onClick={onClick}
       type="button"
     >
-      <div className={styles.top} />
-      <div className={styles.middle} />
-      <div className={styles.bottom} />
+      <span className={styles.outer}>
+        <span className={styles.inner} />
+      </span>
     </button>
   );
 };

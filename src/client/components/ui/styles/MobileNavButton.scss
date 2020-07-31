@@ -1,50 +1,86 @@
+@import '../../../styles/colors';
+
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 32px;
-  height: 32px;
-  padding: 4px;
-  outline: none;
+  padding: 16px 16px;
+  display: inline-block;
   cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  overflow: hidden;
   pointer-events: all;
+  outline: none;
+}
+.container:hover {
+  opacity: 0.7;
+}
+.container.active:hover {
+  opacity: 0.7;
+}
+.container.active .inner,
+.container.active .inner::before,
+.container.active .inner::after {
+  background-color: #fff;
 }
 
-.top, .middle, .bottom {
-  height: 2px;
-  width: 20px;
-  background: white;
-  transition: all 0.2s ease;
+.outer {
+  width: 32px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
 }
 
-.top {
-  transform: none;
-  transform-origin: top left;
-  margin-bottom: 5px;
+.inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px;
+  transition: background-color 0.125s 0.175s ease-in;
 }
 
-.middle {
-  opacity: 1;
-  transform: none;
+.inner, .inner::before, .inner::after {
+  position: absolute;
+  width: 32px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+.inner::before, .inner::after {
+  content: '';
+  display: block;
 }
 
-.bottom {
-  transform: none;
-  transform-origin: top left;
-  margin-top: 5px;
+.inner::before {
+  top: -8px;
+  left: 0;
+  transition: transform 0.125s cubic-bezier(0.6, 0.04, 0.98, 0.335), top 0.05s 0.125s linear, left 0.125s 0.175s ease-in;
+}
+.inner::after {
+  top: 8px;
+  right: 0;
+  bottom: -8px;
+  transition: transform 0.125s cubic-bezier(0.6, 0.04, 0.98, 0.335), top 0.05s 0.125s linear, right 0.125s 0.175s ease-in;
 }
 
-.active .top {
-  transform: rotate(38deg);
-  width: 22px;
+.active .inner {
+  transition-delay: 0s;
+  transition-timing-function: ease-out;
+  background-color: transparent !important;
 }
-
-.active .middle {
-  opacity: 0;
+.active .inner::before {
+  left: -64px;
+  top: -64px;
+  transform: translate3d(64px, 64px, 0) rotate(45deg);
+  transition: left 0.125s ease-out, top 0.05s 0.125s linear, transform 0.125s 0.175s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-
-.active .bottom {
-  transform: rotate(-38deg);
-  width: 22px;
+.active .inner::after {
+  right: -64px;
+  top: -64px;
+  transform: translate3d(-64px, 64px, 0) rotate(-45deg);
+  transition: right 0.125s ease-out, top 0.05s 0.125s linear, transform 0.125s 0.175s cubic-bezier(0.075, 0.82, 0.165, 1);
 }

@@ -4,7 +4,7 @@ import Footer from '../ui/Footer';
 import PageContent from '../ui/PageContent';
 import FmvBackground from '../ui/FmvBackground';
 import Video from '../../videos/synthwave.mp4';
-import Fallback from '../../images/bkgds/360/synthwave-min.jpg';
+import Fallback from '!url-loader!../../images/bkgds/360/synthwave-min.jpg';
 
 const Work: React.FunctionComponent = () => {
   const sidebar = (
