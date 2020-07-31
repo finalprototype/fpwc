@@ -2,7 +2,6 @@ import React from 'react';
 
 import {
   useImagePreload,
-  useVideoPreload,
 } from '../../hooks/preloadHooks';
 
 import styles from './styles/FmvBackground.scss';
@@ -15,9 +14,8 @@ interface Props {
 
 const FmvBackground: React.FunctionComponent<Props> = (props: Props) => {
   const { videoSource, imageFallback, children } = props;
-  const videoLoaded = useVideoPreload(videoSource);
   const fallbackLoaded = useImagePreload(imageFallback);
-  const renderChildren = videoLoaded && children;
+  const renderChildren = fallbackLoaded && children;
 
   return (
     <>
@@ -33,9 +31,8 @@ const FmvBackground: React.FunctionComponent<Props> = (props: Props) => {
           loop
           autoPlay
           muted
-          style={{
-            opacity: videoLoaded ? 1 : 0,
-          }}
+          webkit-playsInline
+          playsInline
         >
           <source src={videoSource} type="video/mp4" />
         </video>

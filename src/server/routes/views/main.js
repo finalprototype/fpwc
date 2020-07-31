@@ -1,5 +1,3 @@
-const filter = require('lodash/filter');
-
 const settings = require('../../settings');
 const getManifest = require('../../utils/manifest');
 const { version } = require('../../../../package.json');
@@ -16,7 +14,6 @@ module.exports = async (req, res) => {
     env: settings.ENV_NAME,
     version,
     assets_path: settings.ASSETS_URL_PATH,
-    fonts: filter(manifest, (v, k) => k.includes('.woff2')),
   };
 
   const viewParams = {
