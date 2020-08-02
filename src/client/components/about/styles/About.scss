@@ -5,13 +5,46 @@
 .content {
   position: relative;
 
-  h1, h2 {
+  h1, h2, h3, h4 {
     text-transform: uppercase;
   }
 
   section {
+    position: relative;
+    overflow: hidden;
     &:not(last-child) {
       margin-bottom: 2em;
     }
   }
+}
+
+.face {
+  width: 128px;
+  height: 128px;
+  float: right;
+}
+
+.details {
+  ul {
+    list-style-type: none;
+  }
+
+  li {
+    margin: 12px 0;
+
+    h3, h4, h5 {
+      font-style: italic;
+    }
+  }
+}
+
+.game-links {
+  text-align: center;
+  button {
+    margin: 8px 16px;
+  }
+}
+
+.friendcode {
+  font-weight: 700;
 }

@@ -13,7 +13,6 @@ export const types = ['normal', 'neon'];
 type Type = typeof types[number];
 
 interface Props {
-  onClick: (value: { [key: string]: string|number|null }) => void;
   size?: Size;
   color?: Color;
   type?: Type;
@@ -21,24 +20,25 @@ interface Props {
   block?: boolean;
   name?: string;
   value?: string;
+  style?: { [key: string]: string|number|null };
   className?: string;
+  onClick: (value: { [key: string]: string|number|null }) => void;
   children: React.ReactNode | string;
 }
 
-const Button: React.FunctionComponent<Props> = (props: Props) => {
-  const {
-    disabled,
-    size,
-    color,
-    type,
-    block,
-    children,
-    className,
-    name,
-    value,
-    onClick,
-  } = props;
-
+const Button: React.FunctionComponent<Props> = ({
+  onClick,
+  children,
+  disabled = false,
+  size = 'medium',
+  color = 'blue',
+  type = 'normal',
+  block = false,
+  style = {},
+  className = undefined,
+  name = 'button',
+  value = undefined,
+}: Props) => {
   const handleClick = (evt: MouseEvent<HTMLButtonElement>) => {
     evt.preventDefault();
     const target = evt.target as HTMLButtonElement;
@@ -78,21 +78,11 @@ const Button: React.FunctionComponent<Props> = (props: Props) => {
       name={name}
       value={value}
       type="button"
+      style={style}
     >
       {children}
     </button>
   );
-};
-
-Button.defaultProps = {
-  size: 'medium',
-  disabled: false,
-  color: 'blue',
-  type: 'normal',
-  name: 'button',
-  block: false,
-  value: undefined,
-  className: undefined,
 };
 
 export default Button;
