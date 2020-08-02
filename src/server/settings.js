@@ -22,8 +22,14 @@ const ASSETS_URL_PATH = ENV_NAME !== PRODUCTION
   ? ASSETS_CDN_URL
   : `${ASSETS_CDN_URL}${version}/`;
 
+const FLAGS = env
+  .get('FLAGS')
+  .default('')
+  .asArray(',');
+
 module.exports = {
   ENV_NAME,
   DEPLOYED,
   ASSETS_URL_PATH,
+  FLAGS,
 };

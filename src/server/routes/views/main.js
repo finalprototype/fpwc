@@ -14,6 +14,7 @@ module.exports = async (req, res) => {
     env: settings.ENV_NAME,
     version,
     assets_path: settings.ASSETS_URL_PATH,
+    flags: settings.FLAGS,
   };
 
   const viewParams = {

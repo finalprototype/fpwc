@@ -8,6 +8,7 @@
     "jest"
   ],
   "rules": {
+    "@typescript-eslint/ban-ts-comment": 0,
     "jest/no-focused-tests": "error",
     "linebreak-style": 0
   }

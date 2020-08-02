@@ -18,8 +18,19 @@ jobs:
         uses: "actions/setup-node@v1"
         with:
           node-version: 12
-      - run: npm install
-      - run: npm run lint
-      - run: npm test
+      - name: Cache Node modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm 
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
+      - name: Install Node Modules
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Test
+        run: npm test
         env:
           CI: true

@@ -11,17 +11,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: "Checkout source code"
+      - name: "Checkout"
         uses: "actions/checkout@v2"
         with:
           ref: ${{ github.ref }}
-      - name: "cat package.json"
-        run: cat ./package.json
       - name: "Setup Node.js"
         uses: "actions/setup-node@v1"
         with:
           node-version: 12
-      - name: "Automated Version Bump"
+      - name: Cache Node modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm 
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
+      - name: Install Node Modules
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Test
+        run: npm test
+      - name: "Bump Version"
         uses: "phips28/gh-action-bump-version@v7.1.0"
         with:
           tag-prefix: ''
