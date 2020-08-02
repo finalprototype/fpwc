@@ -101,7 +101,9 @@ const config = {
           'debug',
           'flux',
           'history',
-          'lodash'
+          'lodash',
+          'qs',
+          '@paralleldrive/react-feature-toggles'
         ]
       },
     }),
