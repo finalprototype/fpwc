@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home renders 1`] = `
+<FmvBackground
+  imageFallback="mock-file"
+  videoSource="mock-file"
+>
+  <PageContent
+    centered={true}
+    flex={true}
+    full={false}
+  >
+    <img
+      alt="Super Mario Bros. 2 - Javascript Edition"
+      className="smb2badge"
+      src="mock-file"
+    />
+    Currently in development.
+    <br />
+    In the meantime, checkout the 
+    <Link
+      to="/smb"
+    >
+      SMB1 prototype
+    </Link>
+  </PageContent>
+  <Footer
+    fixed={true}
+  />
+</FmvBackground>
+`;
