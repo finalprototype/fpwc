@@ -30,16 +30,16 @@ const About: React.FunctionComponent = () => {
     <SideNav>
       <NavItem
         type="right"
-        label="ME"
-        route="/about/me"
-        isActive={location.pathname.includes('/about/me')}
+        label="About The Site"
+        route="/about/site"
+        isActive={location.pathname.includes('/about/site')}
         block
       />
       <NavItem
         type="right"
-        label="SITE"
-        route="/about/site"
-        isActive={location.pathname.includes('/about/site')}
+        label="About Me"
+        route="/about/me"
+        isActive={location.pathname.includes('/about/me')}
         block
       />
     </SideNav>

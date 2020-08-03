@@ -76,6 +76,13 @@ const MainNav: React.FunctionComponent<Props> = ({
           isActive={location.pathname.includes('/smb')}
           onClick={() => changeMenuState(false)}
         />
+        <NavItem
+          label="Source"
+          route={location.pathname}
+          className={styles.item}
+          isActive={location.pathname.includes('/source')}
+          onClick={() => window.open('https://github.com/finalprototype/fpwc', '_blank')}
+        />
       </button>
     </>
   );

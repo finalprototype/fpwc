@@ -67,6 +67,20 @@
     box-shadow:
       0 0 4px $white;
     text-shadow: 0 0 12px $white;
+    @media only screen and (max-width: 600px) {
+      background-color: transparent;
+      border-color: $white;
+      color: $white;
+      box-shadow:
+        0 0 6px $purple,
+        0 0 6px $purple inset,
+        0 0 12px $purple-light inset,
+        0 0 12px $white;
+      text-shadow:
+        0 0 6px $purple,
+        0 0 12px $purple,
+        0 0 18px $white;
+    }
     &:enabled {
       &:hover {
         background-color: transparent;
@@ -119,6 +133,20 @@
     color: $blue-light;
     box-shadow: 0 0 6px $white;
     text-shadow: 0 0 12px $white;
+    @media only screen and (max-width: 600px) {
+      background-color: transparent;
+      border-color: $white;
+      color: $white;
+      box-shadow:
+        0 0 6px $blue,
+        0 0 6px $blue inset,
+        0 0 12px $blue-light inset,
+        0 0 12px $white;
+      text-shadow:
+        0 0 6px $blue,
+        0 0 12px $blue,
+        0 0 18px $white;
+    }
     &:enabled {
       &:hover {
         background-color: transparent;
