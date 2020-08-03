@@ -49,7 +49,7 @@ const AboutMeContent: React.FunctionComponent = () => {
       <p>
         My journey through code has been a self-taught one. Learning and
         applying new frameworks and patterns as the needs arise has helped
-        cultivate an adapable attitude towards growth and change. Considering
+        cultivate an adaptable attitude towards growth and change. Considering
         the rapid pace JavaScript has experienced in the last 10 years alone,
         being malleable to experiment with change has been an important factor.
         While it hasn&apos;t always been an easy path, it&apos;s definitely been a
@@ -142,7 +142,7 @@ const AboutMeContent: React.FunctionComponent = () => {
           back to.
         </p>
         <p>
-          It&apos;s become habit to travel to Japan annually, attempting to
+          It&apos;s become a habit to travel to Japan annually, attempting to
           explore every region and see every festival (for some reason, typhoons
           have prevented me from experiencing the fall properly). It&apos;s a
           difficult place to define in only a few words. I&apos;ll just say,

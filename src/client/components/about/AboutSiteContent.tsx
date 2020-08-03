@@ -57,7 +57,7 @@ const AboutSiteContent: React.FunctionComponent = () => {
         <li>
           <h4>Code Sanity</h4>
           TypeScript validation, ESLint on Airbnb recommended configuration.<br />
-          Run in wepack-dev-server and in pull requests via Github Actions
+          Run in webpack-dev-server and in pull requests via Github Actions
         </li>
         <li>
           <h4>Testing</h4>

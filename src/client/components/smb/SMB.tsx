@@ -91,12 +91,12 @@ const SMB: React.FunctionComponent = () => {
                 obvious choice.
               </p>
               <p>
-                This is that demo, and I must emphasis, this is not an
+                This is that demo, and I must emphasize, this is not an
                 emulation (no original ROM file or assets). It&apos;s
                 purely JavaScript and PNG sprite files written at 30
                 frames-per-second to a HTML5 canvas element. It included
                 the first two levels of the original game (minus secret
-                areas and some entities, like the flag pole), along with
+                areas and some entities, like the flagpole), along with
                 a custom 3rd level to show some uniqueness. A keyboard
                 is required, as it does not have touch controls
                 implemented (although it will load/run in mobile
@@ -109,7 +109,7 @@ const SMB: React.FunctionComponent = () => {
                 the grass is not all green still. The expected gravity
                 physics have become skewed due to the speed increase, as
                 has webAudio (slightly higher pitched now). Some
-                collision is also behaving oddly. In all, be kind.
+                collisions are also behaving oddly. In all, be kind.
                 It&apos;s old.
               </p>
             </div>
