@@ -29,6 +29,24 @@ const AboutSiteContent: React.FunctionComponent = () => {
         infrastructure quickly became obsolete, with this testbed and AWS
         becoming it&apos;s replacement.
       </p>
+      <p>
+        Background artwork by
+        <a
+          href="https://instagram.com/visualdon"
+          target="_blank"
+          rel="noreferrer"
+        >
+          &nbsp;@visualdon
+        </a>
+        <br />
+        <a
+          href="https://instagram.com/visualdon"
+          target="_blank"
+          rel="noreferrer"
+        >
+          https://instagram.com/visualdon
+        </a>
+      </p>
     </section>
   );
 

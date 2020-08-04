@@ -3,10 +3,11 @@ import { FeatureToggles } from '@paralleldrive/react-feature-toggles';
 
 import { useActiveFlags } from '../../hooks/featureFlags';
 
-import AppRouter from './AppRouter';
-import MainNav from '../ui/MainNav';
-import Logo from '../ui/Logo';
 import Loader from '../ui/Loader';
+import Logo from '../ui/Logo';
+import MainNav from '../ui/MainNav';
+import { ModalProvider } from '../ui/Modal';
+import AppRouter from './AppRouter';
 
 import styles from './styles/AppView.scss';
 
@@ -15,7 +16,7 @@ const AppView: React.FunctionComponent = () => {
 
   return (
     <FeatureToggles features={flags}>
-      <>
+      <ModalProvider>
         <div className={styles.header}>
           <Logo className={styles.logo} />
           <MainNav className={styles.nav} />
@@ -25,7 +26,7 @@ const AppView: React.FunctionComponent = () => {
             <AppRouter />
           </Suspense>
         </div>
-      </>
+      </ModalProvider>
     </FeatureToggles>
   );
 };
