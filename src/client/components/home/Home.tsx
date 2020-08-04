@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Footer from '../ui/Footer';
 import PageContent from '../ui/PageContent';
 import FmvBackground from '../ui/FmvBackground';
-import Video from '../../videos/smb2.mp4';
+import Video from '../../videos/min/smb2.mp4';
 import Fallback from '!url-loader!../../images/bkgds/360/smb2-min.jpg';
 import SMB2Badge from '../../images/smb2je-logo-300.png';
 

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Button from '../ui/Button';
 import PageContent from '../ui/PageContent';
 import FmvBackground from '../ui/FmvBackground';
-import Video from '../../videos/smb1.mp4';
+import Video from '../../videos/min/smb1.mp4';
 import Fallback from '!url-loader!../../images/bkgds/360/smb-min.jpg';
 
 import styles from './styles/SMB.scss';

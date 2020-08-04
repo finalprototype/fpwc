@@ -8,7 +8,7 @@ import PageContent from '../ui/PageContent';
 import FmvBackground from '../ui/FmvBackground';
 import AboutMeContent from './AboutMeContent';
 import AboutSiteContent from './AboutSiteContent';
-import Video from '../../videos/sea.mp4';
+import Video from '../../videos/min/sea.mp4';
 import Fallback from '!url-loader!../../images/bkgds/360/sea-min.jpg';
 
 import styles from './styles/About.scss';
