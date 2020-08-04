@@ -1,9 +1,11 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { createRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
 
 import { ModalContext, IModalContext, ModalContent } from '../../contexts/ModalContext';
 import { useModal } from '../../hooks/Modals';
+import MobileNavButton from './MobileNavButton';
 
 import styles from './styles/Modal.scss';
 
@@ -19,24 +21,27 @@ export const Modal = ({
   const { closeModal } = useModal();
   const modalElement = createRef<HTMLDivElement>();
 
-  // const handleOutsideClick = ({ target }: React.SyntheticEvent) => {
-  //   const el: Node = modalElement.current as Node;
-  //   if (el && !el.contains(target as Node)) {
-  //     closeModal();
-  //   }
-  // };
+  const handleOutsideClick = ({ target }: React.SyntheticEvent) => {
+    const el: Node = modalElement.current as Node;
+    if (el && !el.contains(target as Node)) {
+      closeModal();
+    }
+  };
 
   return (
-    <div className={styles.container}>
+    <div
+      role="button"
+      tabIndex={0}
+      className={styles.container}
+      onClick={handleOutsideClick}
+    >
       <div className={styles.inner} ref={modalElement}>
         {allowClose && (
-          <button
-            type="button"
+          <MobileNavButton
             className={styles['close-btn']}
             onClick={closeModal}
-          >
-            close
-          </button>
+            active
+          />
         )}
         {children}
       </div>
@@ -58,7 +63,7 @@ export const ModalRoot = (): React.ReactPortal => createPortal(
             exitActive: styles['exit-active'],
             exitDone: styles['exit-done'],
           }}
-          timeout={1000}
+          timeout={400}
           onExited={() => setContent(null)}
         >
           {content || <div />}

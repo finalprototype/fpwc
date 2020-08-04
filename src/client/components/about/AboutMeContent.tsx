@@ -1,7 +1,10 @@
 import React from 'react';
 
+import { useModal } from '../../hooks/Modals';
 import Button from '../ui/Button';
+
 import Face from '../../images/face_256.png';
+
 import styles from './styles/About.scss';
 
 const AboutMeContent: React.FunctionComponent = () => {
@@ -60,6 +63,16 @@ const AboutMeContent: React.FunctionComponent = () => {
         consistently grow.
       </p>
     </section>
+  );
+
+  const nintendoModalContent = (
+    <h1 className={styles.nintendo}>
+      Nintendo Switch Friend Code
+      <br />
+      <code className={styles.friendcode}>
+        SW-1797-4236-4401
+      </code>
+    </h1>
   );
 
   const personal = (
@@ -127,11 +140,14 @@ const AboutMeContent: React.FunctionComponent = () => {
           >
             Xbox
           </Button>
-          <p className={styles.nintendo}>
-            Nintendo Switch Friend Code:
-            <br />
-            <span className={styles.friendcode}>SW-1797-4236-4401</span>
-          </p>
+          <br />
+          <Button
+            type="neon"
+            color="blue"
+            onClick={() => showModal(nintendoModalContent)}
+          >
+            Nintendo
+          </Button>
         </div>
       </section>
       <section>
