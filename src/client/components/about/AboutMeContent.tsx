@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { useModal } from '../../hooks/Modals';
 import Button from '../ui/Button';
 import Face from '../../images/face_256.png';
 import styles from './styles/About.scss';
@@ -128,14 +127,6 @@ const AboutMeContent: React.FunctionComponent = () => {
           >
             Xbox
           </Button>
-          <button
-            type="button"
-            onClick={() => showModal((
-              <p>test</p>
-            ))}
-          >
-            open this modal!
-          </button>
           <p className={styles.nintendo}>
             Nintendo Switch Friend Code:
             <br />
