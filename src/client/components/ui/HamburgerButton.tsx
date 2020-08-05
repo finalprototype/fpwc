@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import styles from './styles/MobileNavButton.scss';
+import styles from './styles/HamburgerButton.scss';
 
 interface Props {
   active: boolean;
@@ -9,7 +9,7 @@ interface Props {
   className?: string;
 }
 
-const MobileNavButton: React.FunctionComponent<Props> = (props: Props) => {
+const HamburgerButton: React.FunctionComponent<Props> = (props: Props) => {
   const { active, className, onClick } = props;
   const containerClasses = classnames(
     styles.container,
@@ -30,8 +30,8 @@ const MobileNavButton: React.FunctionComponent<Props> = (props: Props) => {
   );
 };
 
-MobileNavButton.defaultProps = {
+HamburgerButton.defaultProps = {
   className: undefined,
 };
 
-export default MobileNavButton;
+export default HamburgerButton;

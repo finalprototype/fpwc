@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal Modal renders children with CloseButton 1`] = `
+<Modal>
+  <div
+    className="container"
+    onClick={[Function]}
+    role="button"
+    tabIndex={0}
+  >
+    <div
+      className="inner"
+    >
+      <CloseButton
+        className="close-btn"
+        onClick={[MockFunction]}
+      >
+        <button
+          className="container close-btn"
+          onClick={[MockFunction]}
+          type="button"
+        >
+          <span
+            className="outer"
+          >
+            <span
+              className="inner"
+            />
+          </span>
+        </button>
+      </CloseButton>
+      <p>
+        content
+      </p>
+    </div>
+  </div>
+</Modal>
+`;
+
+exports[`Modal ModalProvider Provider:values Provider:values:showModal provides props to Modal 1`] = `
+<Modal
+  disableClose={true}
+>
+  <p>
+    testing showModal
+  </p>
+</Modal>
+`;
+
+exports[`Modal ModalProvider Provider:values Provider:values:showModal sets content active, wrapped in Modal 1`] = `
+<Modal>
+  <p>
+    testing showModal
+  </p>
+</Modal>
+`;
+
+exports[`Modal ModalProvider Provider:values Provider:values:showModal throws Error if provided content is invalid 1`] = `"Modal content can not be null"`;
+
+exports[`Modal ModalProvider renders ModalContext Provider with children 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "closeModal": [Function],
+      "content": null,
+      "isActive": false,
+      "setActive": [Function],
+      "setContent": [Function],
+      "showModal": [Function],
+    }
+  }
+>
+  <div>
+    test
+  </div>
+</ContextProvider>
+`;
+
+exports[`Modal ModalRoot renders ReactPortal with fallback div as content 1`] = `
+<ModalRoot>
+  <Portal
+    containerInfo={
+      <div
+        id="modal"
+      >
+        <div />
+      </div>
+    }
+  >
+    <CSSTransition
+      classNames={
+        Object {
+          "enter": "enter",
+          "enterActive": "enter-active",
+          "enterDone": "enter-done",
+          "exit": "exit",
+          "exitActive": "exit-active",
+          "exitDone": "exit-done",
+        }
+      }
+      in={false}
+      onExited={[Function]}
+      timeout={400}
+    >
+      <Transition
+        appear={false}
+        enter={true}
+        exit={true}
+        in={false}
+        mountOnEnter={false}
+        onEnter={[Function]}
+        onEntered={[Function]}
+        onEntering={[Function]}
+        onExit={[Function]}
+        onExited={[Function]}
+        onExiting={[Function]}
+        timeout={400}
+        unmountOnExit={false}
+      >
+        <div />
+      </Transition>
+    </CSSTransition>
+  </Portal>
+</ModalRoot>
+`;
+
+exports[`Modal ModalRoot renders non-null content 1`] = `
+<ModalRoot>
+  <Portal
+    containerInfo={
+      <div
+        id="modal"
+      >
+        <div />
+        <p>
+          new content
+        </p>
+      </div>
+    }
+  >
+    <CSSTransition
+      classNames={
+        Object {
+          "enter": "enter",
+          "enterActive": "enter-active",
+          "enterDone": "enter-done",
+          "exit": "exit",
+          "exitActive": "exit-active",
+          "exitDone": "exit-done",
+        }
+      }
+      in={false}
+      onExited={[Function]}
+      timeout={400}
+    >
+      <Transition
+        appear={false}
+        enter={true}
+        exit={true}
+        in={false}
+        mountOnEnter={false}
+        onEnter={[Function]}
+        onEntered={[Function]}
+        onEntering={[Function]}
+        onExit={[Function]}
+        onExited={[Function]}
+        onExiting={[Function]}
+        timeout={400}
+        unmountOnExit={false}
+      >
+        <p>
+          new content
+        </p>
+      </Transition>
+    </CSSTransition>
+  </Portal>
+</ModalRoot>
+`;

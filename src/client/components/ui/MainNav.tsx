@@ -4,7 +4,7 @@ import { useFeatures } from '@paralleldrive/react-feature-toggles';
 import classnames from 'classnames';
 
 import NavItem from './NavItem';
-import MobileNavButton from './MobileNavButton';
+import HamburgerButton from './HamburgerButton';
 import styles from './styles/MainNav.scss';
 
 interface Props {
@@ -44,7 +44,7 @@ const MainNav: React.FunctionComponent<Props> = ({
 
   return (
     <>
-      <MobileNavButton
+      <HamburgerButton
         className={styles.menubutton}
         active={menuActive || false}
         onClick={() => changeMenuState(!menuActive)}

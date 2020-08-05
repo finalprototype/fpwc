@@ -5,9 +5,14 @@ import {
   ReactNode,
 } from 'react';
 
-const invariant = () => {
-  throw new Error('Modal outside of provider');
-};
+export interface IModalProvider {
+  children?: React.ReactNode
+}
+
+export interface IModal {
+  children: React.ReactNode;
+  disableClose?: boolean;
+}
 
 export type ModalContent = ReactNode|null;
 
@@ -16,9 +21,13 @@ export interface IModalContext {
   setContent: Dispatch<SetStateAction<ModalContent>>;
   isActive: boolean;
   setActive: Dispatch<SetStateAction<boolean>>;
-  showModal: (c: ReactNode) => void,
+  showModal: (c: ReactNode, p?: Partial<IModal>) => void,
   closeModal: () => void,
 }
+
+const invariant = () => {
+  throw new Error('Modal outside of provider');
+};
 
 export const ModalContext = createContext<IModalContext>({
   content: null,

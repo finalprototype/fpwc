@@ -1,0 +1,45 @@
+@import '../../../styles/colors';
+
+.container {
+  padding: 16px 16px;
+  display: inline-block;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  overflow: hidden;
+  pointer-events: all;
+  outline: none;
+}
+.container:hover {
+  opacity: 0.7;
+}
+
+.outer {
+  width: 32px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+}
+
+.inner, .inner::before {
+  position: absolute;
+  width: 32px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.inner {
+  display: block;
+  left: -64px;
+  top: -64px;
+  transform: translate3d(64px, 64px, 0) rotate(45deg);
+}
+.inner::before {
+  content: '';
+  display: block;
+  right: -64px;
+  top: -64px;
+  transform: translate3d(-64px, 64px, 0) rotate(-90deg);
+}

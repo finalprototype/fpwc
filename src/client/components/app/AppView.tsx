@@ -6,7 +6,7 @@ import { useActiveFlags } from '../../hooks/featureFlags';
 import Loader from '../ui/Loader';
 import Logo from '../ui/Logo';
 import MainNav from '../ui/MainNav';
-import { ModalProvider } from '../ui/Modal';
+import { ModalProvider, ModalRoot } from '../ui/Modal';
 import AppRouter from './AppRouter';
 
 import styles from './styles/AppView.scss';
@@ -26,6 +26,7 @@ const AppView: React.FunctionComponent = () => {
             <AppRouter />
           </Suspense>
         </div>
+        <ModalRoot />
       </ModalProvider>
     </FeatureToggles>
   );
