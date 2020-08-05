@@ -46,6 +46,15 @@ jobs:
 
       - name: "Build Assets + S3"
         run: npm run build -- --verbose
+        env:
+          ASSETS_CDN_URL: ${{ secrets.ASSETS_CDN_URL }}
+          AWS_KEY: ${{ secrets.AWS_KEY }}
+          AWS_SECRET: ${{ secrets.AWS_SECRET }}
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          PORT: ${{ secrets.PORT }}
+          ENV_NAME: ${{ secrets.ENV_NAME }}
+          NODE_ENV: ${{ secrets.NODE_ENV }}
 
       - name: "Zip EB Deploy"
         run: zip -r deploy.zip * -x ".env*" ".git/*" ".elasticbeanstalk/*" "node_modules/*" "npm-debug.log" -v
