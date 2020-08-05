@@ -1,0 +1,49 @@
+name: "CI"
+
+on:
+  push:
+    branches:
+      - "fp/ci-webpack"
+
+jobs:
+  bump-version:
+    name: "Test CI"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v2"
+        with:
+          ref: ${{ github.ref }}
+
+      - name: "Setup Node.js"
+        uses: "actions/setup-node@v1"
+        with:
+          node-version: 12
+
+      - name: "Install Node Modules"
+        run: npm ci
+
+      - name: "Get Version"
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@master
+
+      - name: "Get Git SHA"
+        id: slug
+        run: echo "::set-output name=sha8::$(echo ${GITHUB_SHA} | cut -c1-8)"
+
+      - name: "Get timestamp"
+        id: timestamp
+        run: echo "::set-output name=res::$(date +'%y%m%d_%H%M%S')"
+
+      - name: "Sanitize version"
+        uses: frabert/replace-string-action@master
+        id: format-version
+        with:
+          pattern: '[\.]+'
+          string: "v${{steps.package-version.outputs.current-version}}"
+          replace-with: '_'
+          flags: 'g'
+
+      - name: "test label"
+        run: echo "${{secrets.EB_APPLICATION}}-${{steps.format-version.outputs.replaced}}-${{steps.slug.outputs.sha8}}-${{steps.timestamp.outputs.res}}"
