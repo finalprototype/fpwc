@@ -12,6 +12,7 @@ const WebpackS3Plugin = require('webpack-s3-plugin');
 
 const version = require('./package.json').version;
 
+const IS_CI = Boolean(process.env.CI || false);
 const DEVELOPMENT = process.env.NODE_ENV === 'development';
 const DIR_CLIENT = path.resolve(__dirname, 'src', 'client');
 const DIR_VENDOR = path.resolve(__dirname, 'src', 'vendor');
@@ -232,11 +233,9 @@ const config = {
   }
 };
 
-if (!DEVELOPMENT) {
+if (!DEVELOPMENT && IS_CI) {
+  console.log('-- deploying S3');
   config.plugins = config.plugins.concat([
-    new webpack.DefinePlugin({
-     'process.env.AWS_CDN_URL': JSON.stringify(process.env.AWS_CDN_URL),
-    }),
     new WebpackS3Plugin({
       s3Options: {
         accessKeyId: process.env.AWS_KEY,
