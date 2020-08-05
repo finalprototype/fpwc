@@ -19,7 +19,7 @@ jobs:
         uses: "actions/setup-node@v1"
         with:
           node-version: 12
-      - name: Cache Node modules
+      - name: "Cache Node modules"
         uses: actions/cache@v2
         with:
           path: ~/.npm 
@@ -27,7 +27,7 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
-      - name: Install Node Modules
+      - name: "Install Node Modules"
         run: npm ci
       - name: Lint
         run: npm run lint
@@ -37,5 +37,7 @@ jobs:
         uses: "phips28/gh-action-bump-version@v7.1.0"
         with:
           tag-prefix: ''
-      - name: "cat package.json"
+      - name: "Verify Package"
         run: cat ./package.json
+      - name: "Build Assets + S3"
+        run: npm run build
