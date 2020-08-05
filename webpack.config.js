@@ -143,14 +143,6 @@ const config = {
       },
 
       {
-        test: /\.(mp4|eot|ttf|woff2?)$/,
-        loader: 'file-loader',
-        options: {
-          name: DEVELOPMENT ? '[name].[ext]' : '[name].[hash].[ext]',
-        }
-      },
-
-      {
         test: /\.css$/,
         include: [path.resolve(__dirname, 'node_modules')],
         use: [
@@ -194,6 +186,14 @@ const config = {
             }
           }
         ]
+      },
+
+      {
+        test: /\.(mp4|eot|ttf|woff2?)$/,
+        loader: 'file-loader',
+        options: {
+          name: DEVELOPMENT ? '[name].[ext]' : '[name].[hash].[ext]',
+        }
       },
 
       {

@@ -45,7 +45,7 @@ jobs:
           tag-prefix: ''
 
       - name: "Build Assets + S3"
-        run: npm run build
+        run: npm run build -- --verbose
 
       - name: "Zip EB Deploy"
         run: zip -r deploy.zip * -x ".env*" ".git/*" ".elasticbeanstalk/*" "node_modules/*" "npm-debug.log" -v
