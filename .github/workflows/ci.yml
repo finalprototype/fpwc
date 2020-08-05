@@ -6,8 +6,8 @@ on:
       - "master"
 
 jobs:
-  bump-version:
-    name: "Bump Version on master"
+  deployment:
+    name: "Deployment"
     runs-on: ubuntu-latest
 
     steps:
@@ -15,11 +15,13 @@ jobs:
         uses: "actions/checkout@v2"
         with:
           ref: ${{ github.ref }}
+
       - name: "Setup Node.js"
         uses: "actions/setup-node@v1"
         with:
           node-version: 12
-      - name: Cache Node modules
+
+      - name: "Cache Node modules"
         uses: actions/cache@v2
         with:
           path: ~/.npm 
@@ -27,15 +29,60 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
-      - name: Install Node Modules
+
+      - name: "Install Node Modules"
         run: npm ci
-      - name: Lint
+
+      - name: "Lint"
         run: npm run lint
-      - name: Test
+
+      - name: "Test"
         run: npm test
+
       - name: "Bump Version"
         uses: "phips28/gh-action-bump-version@v7.1.0"
         with:
           tag-prefix: ''
-      - name: "cat package.json"
-        run: cat ./package.json
+
+      - name: "Get Version"
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@master
+
+      - name: "Build Assets + S3"
+        run: npm run build
+
+      - name: "Zip EB Deploy"
+        run: zip -r deploy.zip * -x ".env*" ".git/*" ".elasticbeanstalk/*" "node_modules/*" "npm-debug.log" -v
+
+      - name: "Get Version"
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@master
+
+      - name: "Get Git SHA"
+        id: slug
+        run: echo "::set-output name=sha8::$(echo ${GITHUB_SHA} | cut -c1-8)"
+
+      - name: "Get timestamp"
+        id: timestamp
+        run: echo "::set-output name=res::$(date +'%y%m%d_%H%M%S')"
+
+      - name: "Sanitize version"
+        uses: frabert/replace-string-action@master
+        id: format-version
+        with:
+          pattern: '[\.]+'
+          string: "v${{steps.package-version.outputs.current-version}}"
+          replace-with: '_'
+          flags: 'g'
+
+      - name: "Deploy Server"
+        uses: einaregilsson/beanstalk-deploy@v11
+        with:
+          aws_access_key: ${{secrets.AWS_KEY}}
+          aws_secret_key: ${{secrets.AWS_SECRET}}
+          application_name: ${{secrets.EB_APPLICATION}}
+          environment_name: ${{secrets.EB_ENVIRONMENT}}
+          region: ${{secrets.AWS_REGION}}
+          version_label: "fpwc-${{steps.format-version.outputs.replaced}}-${{steps.slug.outputs.sha8}}-${{steps.timestamp.outputs.res}}"
+          version_description: ${{github.SHA}}
+          deployment_package: deploy.zip
