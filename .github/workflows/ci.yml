@@ -54,7 +54,10 @@ jobs:
           NODE_ENV: ${{ secrets.NODE_ENV }}
 
       - name: "Zip EB Deploy"
-        run: zip -r deploy.zip * -x ".env*" ".git/*" ".elasticbeanstalk/*" "node_modules/*" "npm-debug.log" -v
+        uses: thedoctor0/zip-release@0.4.1
+        with:
+          filename: 'deploy.zip'
+          exclusions: '.env* .git/* .elasticbeanstalk/* node_modules/* npm-debug.log'
 
       - name: "Get Version"
         id: package-version
