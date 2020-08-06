@@ -178,7 +178,7 @@ const config = {
               plugins: [AutoPrefixer({remove: false})],
             }
           },
-          { loader: 'resolve-url-loader' },
+          'resolve-url-loader',
           {
             loader: 'sass-loader',
             options: {

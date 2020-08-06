@@ -21,11 +21,6 @@ jobs:
         with:
           ref: ${{ github.ref }}
 
-      - name: "Setup Node.js"
-        uses: "actions/setup-node@v1"
-        with:
-          node-version: 12
-
       - name: "Cache Node modules"
         uses: actions/cache@v2
         with:
@@ -37,6 +32,9 @@ jobs:
 
       - name: "Install Node Modules"
         run: npm ci
+
+      - name: "Check files"
+        run: ls -a -R
 
       - name: "Build Assets + S3"
         run: npm run build
