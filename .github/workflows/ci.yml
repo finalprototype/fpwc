@@ -49,6 +49,7 @@ jobs:
           AWS_SECRET: ${{ secrets.AWS_SECRET }}
           AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_CLOUDFRONT_DIST_ID: ${{ secrets.AWS_CLOUDFRONT_DIST_ID }}
           PORT: ${{ secrets.PORT }}
           PORT_ASSETS: ${{ secrets.PORT_ASSETS }}
           ENV_NAME: ${{ secrets.ENV_NAME }}

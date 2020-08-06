@@ -234,18 +234,29 @@ const config = {
 };
 
 if (!DEVELOPMENT && IS_CI) {
+  const s3Options = {
+    accessKeyId: process.env.AWS_KEY,
+    secretAccessKey: process.env.AWS_SECRET,
+    region: 'us-east-1'
+  };
+  const s3UploadOptions = {
+    Bucket: process.env.AWS_S3_BUCKET,
+    CacheControl: 'max-age=315360000, no-transform, public',
+  };
   config.plugins = config.plugins.concat([
     new WebpackS3Plugin({
-      s3Options: {
-        accessKeyId: process.env.AWS_KEY,
-        secretAccessKey: process.env.AWS_SECRET,
-        region: 'us-east-1'
-      },
-      s3UploadOptions: {
-        Bucket: process.env.AWS_S3_BUCKET,
-        CacheControl: 'max-age=315360000, no-transform, public',
-      },
+      s3Options,
+      s3UploadOptions,
       basePath: `prod/${version}`,
+    }),
+    new WebpackS3Plugin({
+      s3Options,
+      s3UploadOptions,
+      basePath: `prod/latest`,
+      cloudfrontInvalidateOptions: {
+        DistributionId: process.env.AWS_CLOUDFRONT_DIST_ID,
+        Items: ["/latest/*"]
+      }
     })
   ]);
 }
