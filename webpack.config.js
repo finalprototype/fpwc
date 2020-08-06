@@ -234,7 +234,6 @@ const config = {
 };
 
 if (!DEVELOPMENT && IS_CI) {
-  console.log('-- deploying S3');
   config.plugins = config.plugins.concat([
     new WebpackS3Plugin({
       s3Options: {
