@@ -1,40 +1,56 @@
+@import '../../../styles/colors';
+
 .container {
-  position: absolute;
-  display: inline-block;
-  width: 64px;
-  height: 64px;
+  position: relative;
+  display: block;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  background: none;
 
   &.inline {
-    position: relative;
+    display: inline-block;
   }
 }
 
-.container div {
-  position: absolute;
-  border: 4px solid #fff;
-  opacity: 1;
-  border-radius: 50%;
-  animation: ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+.inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transform: translateZ(0) scale(1);
+  transform-origin: center center;
+  backface-visibility: hidden;
 }
 
-.container div:nth-child(2) {
-  animation-delay: -0.5s;
+.inner div {
+  position: absolute;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 3;
+  opacity: 0;
+  animation: ripple 1.5s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.inner div:nth-child(2) {
+  animation-delay: -0.33s;
+}
+
+.inner div:nth-child(3) {
+  animation-delay: -0.66s;
 }
 
 @keyframes ripple {
   0% {
-    top: 45%;
-    left: 45%;
     width: 0;
     height: 0;
     opacity: 1;
   }
-
   100% {
-    top: 0px;
-    left: 0px;
-    width: 90%;
-    height: 90%;
+    width: 95%;
+    height: 95%;
     opacity: 0;
   }
 }
