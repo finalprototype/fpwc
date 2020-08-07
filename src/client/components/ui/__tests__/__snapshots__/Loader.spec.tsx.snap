@@ -5,55 +5,489 @@ exports[`Loader renders default props 1`] = `
   className="container"
   style={
     Object {
+      "height": "128px",
+      "width": "128px",
+    }
+  }
+>
+  <div
+    className="inner"
+  >
+    <div
+      style={
+        Object {
+          "borderColor": "purpledark",
+          "borderWidth": 3,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "borderColor": "purple",
+          "borderWidth": 3,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "borderColor": "purplelight",
+          "borderWidth": 3,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Loader renders inline 1`] = `
+<div
+  className="container inline"
+  style={
+    Object {
+      "height": "128px",
+      "width": "128px",
+    }
+  }
+>
+  <div
+    className="inner"
+  >
+    <div
+      style={
+        Object {
+          "borderColor": "purpledark",
+          "borderWidth": 3,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "borderColor": "purple",
+          "borderWidth": 3,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "borderColor": "purplelight",
+          "borderWidth": 3,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Loader renders with custom color: one color 1`] = `
+<div
+  className="container"
+  style={
+    Object {
+      "height": "128px",
+      "width": "128px",
+    }
+  }
+>
+  <div
+    className="inner"
+  >
+    <div
+      style={
+        Object {
+          "borderColor": "blue",
+          "borderWidth": 3,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "borderColor": "blue",
+          "borderWidth": 3,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "borderColor": "blue",
+          "borderWidth": 3,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Loader renders with custom color: three colors 1`] = `
+<div
+  className="container"
+  style={
+    Object {
+      "height": "128px",
+      "width": "128px",
+    }
+  }
+>
+  <div
+    className="inner"
+  >
+    <div
+      style={
+        Object {
+          "borderColor": "blue",
+          "borderWidth": 3,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "borderColor": "gray",
+          "borderWidth": 3,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "borderColor": "black",
+          "borderWidth": 3,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Loader renders with custom color: two colors 1`] = `
+<div
+  className="container"
+  style={
+    Object {
+      "height": "128px",
+      "width": "128px",
+    }
+  }
+>
+  <div
+    className="inner"
+  >
+    <div
+      style={
+        Object {
+          "borderColor": "gray",
+          "borderWidth": 3,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "borderColor": "black",
+          "borderWidth": 3,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "borderColor": "black",
+          "borderWidth": 3,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Loader renders with custom sizes: 16 1`] = `
+<div
+  className="container"
+  style={
+    Object {
+      "height": "16px",
+      "width": "16px",
+    }
+  }
+>
+  <div
+    className="inner"
+  >
+    <div
+      style={
+        Object {
+          "borderColor": "purpledark",
+          "borderWidth": 0.5,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "borderColor": "purple",
+          "borderWidth": 0.5,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "borderColor": "purplelight",
+          "borderWidth": 0.5,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Loader renders with custom sizes: 32 1`] = `
+<div
+  className="container"
+  style={
+    Object {
+      "height": "32px",
+      "width": "32px",
+    }
+  }
+>
+  <div
+    className="inner"
+  >
+    <div
+      style={
+        Object {
+          "borderColor": "purpledark",
+          "borderWidth": 0.75,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "borderColor": "purple",
+          "borderWidth": 0.75,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "borderColor": "purplelight",
+          "borderWidth": 0.75,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Loader renders with custom sizes: 64 1`] = `
+<div
+  className="container"
+  style={
+    Object {
       "height": "64px",
       "width": "64px",
     }
   }
 >
   <div
-    style={
-      Object {
-        "borderColor": "#ffffff",
-        "borderWidth": 3.2,
+    className="inner"
+  >
+    <div
+      style={
+        Object {
+          "borderColor": "purpledark",
+          "borderWidth": 1.5,
+        }
       }
-    }
-  />
-  <div
-    style={
-      Object {
-        "borderColor": "#ffffff",
-        "borderWidth": 3.2,
+    />
+    <div
+      style={
+        Object {
+          "borderColor": "purple",
+          "borderWidth": 1.5,
+        }
       }
-    }
-  />
+    />
+    <div
+      style={
+        Object {
+          "borderColor": "purplelight",
+          "borderWidth": 1.5,
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
-exports[`Loader renders with custom props 1`] = `
+exports[`Loader renders with custom sizes: 128 1`] = `
 <div
   className="container"
   style={
     Object {
-      "height": "24px",
-      "width": "24px",
+      "height": "128px",
+      "width": "128px",
     }
   }
 >
   <div
-    style={
-      Object {
-        "borderColor": "#336699",
-        "borderWidth": 1.2000000000000002,
+    className="inner"
+  >
+    <div
+      style={
+        Object {
+          "borderColor": "purpledark",
+          "borderWidth": 3,
+        }
       }
+    />
+    <div
+      style={
+        Object {
+          "borderColor": "purple",
+          "borderWidth": 3,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "borderColor": "purplelight",
+          "borderWidth": 3,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Loader renders with custom sizes: 192 1`] = `
+<div
+  className="container"
+  style={
+    Object {
+      "height": "192px",
+      "width": "192px",
     }
-  />
+  }
+>
   <div
-    style={
-      Object {
-        "borderColor": "#336699",
-        "borderWidth": 1.2000000000000002,
+    className="inner"
+  >
+    <div
+      style={
+        Object {
+          "borderColor": "purpledark",
+          "borderWidth": 4,
+        }
       }
+    />
+    <div
+      style={
+        Object {
+          "borderColor": "purple",
+          "borderWidth": 4,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "borderColor": "purplelight",
+          "borderWidth": 4,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Loader renders with custom sizes: 256 1`] = `
+<div
+  className="container"
+  style={
+    Object {
+      "height": "256px",
+      "width": "256px",
     }
-  />
+  }
+>
+  <div
+    className="inner"
+  >
+    <div
+      style={
+        Object {
+          "borderColor": "purpledark",
+          "borderWidth": 4,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "borderColor": "purple",
+          "borderWidth": 4,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "borderColor": "purplelight",
+          "borderWidth": 4,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Loader renders with provided className 1`] = `
+<div
+  className="container test-1 test-2"
+  style={
+    Object {
+      "height": "128px",
+      "width": "128px",
+    }
+  }
+>
+  <div
+    className="inner"
+  >
+    <div
+      style={
+        Object {
+          "borderColor": "purpledark",
+          "borderWidth": 3,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "borderColor": "purple",
+          "borderWidth": 3,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "borderColor": "purplelight",
+          "borderWidth": 3,
+        }
+      }
+    />
+  </div>
 </div>
 `;

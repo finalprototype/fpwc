@@ -13,6 +13,9 @@ import styles from './styles/AppView.scss';
 
 const AppView: React.FunctionComponent = () => {
   const flags = useActiveFlags();
+  const suspenseFallback = (
+    <Loader className={styles['suspense-loader']} />
+  );
 
   return (
     <FeatureToggles features={flags}>
@@ -22,7 +25,7 @@ const AppView: React.FunctionComponent = () => {
           <MainNav className={styles.nav} />
         </div>
         <div className={styles.content}>
-          <Suspense fallback={<Loader />}>
+          <Suspense fallback={suspenseFallback}>
             <AppRouter />
           </Suspense>
         </div>

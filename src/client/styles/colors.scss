@@ -11,3 +11,17 @@ $purple-dark: #560b98;
 $blue-light: #9edbee;
 $blue: #3eb7dd;
 $blue-dark: #2b809a;
+
+:export {
+  black: $black;
+  graydark: $gray-dark;
+  gray: $gray;
+  graylight: $gray-light;
+  white: $white;
+  purplelight: $purple-light;
+  purple: $purple;
+  purpledark: $purple-dark;
+  bluelight: $blue-light;
+  blue: $blue;
+  bluedark: $blue-dark;
+}

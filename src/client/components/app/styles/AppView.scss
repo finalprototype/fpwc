@@ -22,6 +22,12 @@
   }
 }
 
+.suspense-loader {
+  position: absolute;
+  top: calc(50% - 64px);
+  left: calc(50% - 64px);
+}
+
 .nav {
   position: absolute;
   right: 0;
