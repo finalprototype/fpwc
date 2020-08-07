@@ -95,16 +95,17 @@ const config = {
         vendor: [
           'react',
           'react-dom',
+          'react-redux',
           'react-router-dom',
           'react-transition-group',
           'axios',
           'classnames',
           'debug',
-          'flux',
           'history',
           'lodash',
           'qs',
-          '@paralleldrive/react-feature-toggles'
+          '@paralleldrive/react-feature-toggles',
+          '@reduxjs/toolkit'
         ]
       },
     }),
