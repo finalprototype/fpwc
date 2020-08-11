@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import classnames from 'classnames';
 
-import styles from './styles/Logo.scss';
+import styles from './__styles__/Logo.scss';
 
 interface Props {
   className?: string;

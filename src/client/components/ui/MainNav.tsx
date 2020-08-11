@@ -5,7 +5,7 @@ import classnames from 'classnames';
 
 import NavItem from './NavItem';
 import HamburgerButton from './HamburgerButton';
-import styles from './styles/MainNav.scss';
+import styles from './__styles__/MainNav.scss';
 
 interface Props {
   mobileMenuActive?: boolean,

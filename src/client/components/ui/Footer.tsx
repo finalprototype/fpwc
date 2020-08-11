@@ -9,7 +9,7 @@ import IconInstagram from '../../images/social/svg/instagram.svg';
 import IconTwitch from '../../images/social/svg/twitch.svg';
 import IconEmail from '../../images/social/svg/email.svg';
 
-import styles from './styles/Footer.scss';
+import styles from './__styles__/Footer.scss';
 
 interface Props {
   fixed?: boolean;

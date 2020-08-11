@@ -10,7 +10,7 @@ import MainNav from '../ui/MainNav';
 import { ModalProvider, ModalRoot } from '../ui/Modal';
 import AppRouter from './AppRouter';
 
-import styles from './styles/AppView.scss';
+import styles from './__styles__/AppView.scss';
 
 const AppView: React.FunctionComponent = () => {
   const flags = useActiveFlags();

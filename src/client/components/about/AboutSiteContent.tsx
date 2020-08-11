@@ -2,7 +2,7 @@ import React from 'react';
 
 import Button from '../ui/Button';
 
-import styles from './styles/About.scss';
+import styles from './__styles__/About.scss';
 
 const AboutSiteContent: React.FunctionComponent = () => {
   const header = (

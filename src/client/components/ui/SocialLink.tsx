@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import styles from './styles/SocialLink.scss';
+import styles from './__styles__/SocialLink.scss';
 
 interface Props {
   url?: string;

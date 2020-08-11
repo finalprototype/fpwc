@@ -5,7 +5,7 @@ import Button from '../ui/Button';
 
 import Face from '../../images/face_256.png';
 
-import styles from './styles/About.scss';
+import styles from './__styles__/About.scss';
 
 const AboutMeContent: React.FunctionComponent = () => {
   const { showModal } = useModal();

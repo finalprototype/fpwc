@@ -12,7 +12,7 @@ import {
 import { useModal } from '../../hooks/Modals';
 import CloseButton from './CloseButton';
 
-import styles from './styles/Modal.scss';
+import styles from './__styles__/Modal.scss';
 
 export const ModalProvider = ({ children }: IModalProvider): React.ReactElement => {
   const [content, setContent] = useState<ModalContent>(null);

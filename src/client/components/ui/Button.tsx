@@ -1,7 +1,7 @@
 import React, { MouseEvent } from 'react';
 import classNames from 'classnames';
 
-import styles from './styles/Button.scss';
+import styles from './__styles__/Button.scss';
 
 export const sizes = ['small', 'medium', 'large'];
 type Size = typeof sizes[number];

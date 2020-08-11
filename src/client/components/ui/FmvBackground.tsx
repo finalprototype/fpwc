@@ -6,7 +6,7 @@ import { RootState } from '../../reducers';
 import { useImagePreload } from '../../hooks/preloadHooks';
 import Loader from './Loader';
 
-import styles from './styles/FmvBackground.scss';
+import styles from './__styles__/FmvBackground.scss';
 
 export interface ActiveBkgdState {
   imageSource?: string;

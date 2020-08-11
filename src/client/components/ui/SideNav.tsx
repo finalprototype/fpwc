@@ -3,7 +3,7 @@ import classnames from 'classnames';
 
 import { history } from '../app/AppHistory';
 import { Props as NavItemProps } from './NavItem';
-import styles from './styles/SideNav.scss';
+import styles from './__styles__/SideNav.scss';
 
 interface Props {
   className?: string;

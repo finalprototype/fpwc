@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import styles from './styles/HamburgerButton.scss';
+import styles from './__styles__/HamburgerButton.scss';
 
 interface Props {
   active: boolean;

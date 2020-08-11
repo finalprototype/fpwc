@@ -10,7 +10,7 @@ export interface AppReducerState {
 
 export interface AppReducerAction {
   type: string;
-  payload?: { [key: string]: string };
+  payload?: { [key: string]: string|undefined };
 }
 
 export const getInitialState = (): AppReducerState => ({

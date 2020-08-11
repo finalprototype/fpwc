@@ -9,7 +9,7 @@ import Video from '../videos/min/glitch.mp4';
 import Fallback from '../images/bkgds/360/glitch-min.jpg';
 import DeadLink from '../images/dead_link.png';
 
-import styles from './styles/NotFound.scss';
+import styles from './__styles__/NotFound.scss';
 
 const NotFound: React.FunctionComponent = () => {
   const dispatch = useDispatch();

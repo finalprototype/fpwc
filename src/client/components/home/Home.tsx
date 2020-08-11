@@ -10,7 +10,7 @@ import SMB2Badge from '../../images/smb2je-logo-300.png';
 import Video from '../../videos/min/smb2.mp4';
 import Fallback from '../../images/bkgds/360/smb2-min.jpg';
 
-import styles from './styles/Home.scss';
+import styles from './__styles__/Home.scss';
 
 const Home: React.FunctionComponent = () => {
   const dispatch = useDispatch();

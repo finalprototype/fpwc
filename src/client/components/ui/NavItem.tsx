@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 
-import styles from './styles/NavItem.scss';
+import styles from './__styles__/NavItem.scss';
 
 export const types = ['normal', 'left', 'right'];
 type Type = typeof types[number];

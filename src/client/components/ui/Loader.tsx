@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { clamp } from 'lodash';
 
-import styles from './styles/Loader.scss';
+import styles from './__styles__/Loader.scss';
 import rawColors from '../../styles/colors.scss';
 
 const colorKeys = Object.keys(rawColors);

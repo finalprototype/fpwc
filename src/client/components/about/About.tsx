@@ -13,7 +13,7 @@ import AboutSiteContent from './AboutSiteContent';
 import Video from '../../videos/min/sea.mp4';
 import Fallback from '../../images/bkgds/360/sea-min.jpg';
 
-import styles from './styles/About.scss';
+import styles from './__styles__/About.scss';
 
 const getAboutContent = (route: string): React.FunctionComponent => {
   switch (route) {

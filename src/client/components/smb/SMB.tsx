@@ -8,7 +8,7 @@ import PageContent from '../ui/PageContent';
 import Video from '../../videos/min/smb1.mp4';
 import Fallback from '../../images/bkgds/360/smb-min.jpg';
 
-import styles from './styles/SMB.scss';
+import styles from './__styles__/SMB.scss';
 
 const SMB: React.FunctionComponent = () => {
   const dispatch = useDispatch();

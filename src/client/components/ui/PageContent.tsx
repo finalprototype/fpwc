@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
-import styles from './styles/PageContent.scss';
+import styles from './__styles__/PageContent.scss';
 
 interface Props {
   centered?: boolean;
