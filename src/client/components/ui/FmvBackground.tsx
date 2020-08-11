@@ -1,49 +1,86 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { SwitchTransition, CSSTransition } from 'react-transition-group';
 
-import {
-  useImagePreload,
-} from '../../hooks/preloadHooks';
+import { RootState } from '../../reducers';
+import { useImagePreload } from '../../hooks/preloadHooks';
+import Loader from './Loader';
 
 import styles from './styles/FmvBackground.scss';
 
-interface Props {
-  videoSource: string;
-  imageFallback: string;
-  children?: React.ReactNode;
+export interface ActiveBkgdState {
+  imageSource?: string;
+  videoSource?: string;
 }
 
-const FmvBackground: React.FunctionComponent<Props> = (props: Props) => {
-  const { videoSource, imageFallback, children } = props;
-  const fallbackLoaded = useImagePreload(imageFallback);
-  const renderChildren = fallbackLoaded && children;
+export const initialState: ActiveBkgdState = {
+  imageSource: undefined,
+  videoSource: undefined,
+};
+
+export const FmvBackground: React.FunctionComponent = () => {
+  const bkgdState = useSelector((state: RootState) => state.background);
+  const imageLoaded = useImagePreload(bkgdState.imageSource);
+  const [activeBkgd, updateActiveBkgd] = useState(initialState);
+
+  useEffect(() => {
+    if (imageLoaded && imageLoaded !== activeBkgd.imageSource) {
+      updateActiveBkgd({ ...{}, ...bkgdState });
+    }
+  }, [imageLoaded, activeBkgd.imageSource, bkgdState]);
+
+  const renderLoader = Boolean(
+    !activeBkgd.imageSource
+    || bkgdState.imageSource !== activeBkgd.imageSource
+  ) || null;
+
+  const renderBackground = Boolean(activeBkgd.imageSource) || null;
+  const renderVideo = Boolean(activeBkgd.videoSource) || null;
 
   return (
     <>
-      <div
-        className={styles.container}
-        style={{
-          backgroundImage: fallbackLoaded ? `url('${imageFallback}')` : 'none',
-          opacity: fallbackLoaded ? 1 : 0,
-        }}
-      >
-        <video
-          className={styles.fmv}
-          loop
-          autoPlay
-          muted
-          webkit-playsInline
-          playsInline
-        >
-          <source src={videoSource} type="video/mp4" />
-        </video>
-      </div>
-      {renderChildren || null}
+      {renderBackground && (
+        <SwitchTransition mode="in-out">
+          <CSSTransition
+            key={activeBkgd.imageSource}
+            addEndListener={(node, done) => {
+              node.addEventListener('transitionend', done, false);
+            }}
+            classNames={{
+              enter: styles['fade-enter'],
+              enterActive: styles['fade-enter-active'],
+              exit: styles['fade-exit'],
+              exitActive: styles['fade-exit-active'],
+            }}
+            timeout={250}
+          >
+            <div
+              className={styles.container}
+              style={{
+                backgroundImage: `url('${activeBkgd.imageSource}')`,
+              }}
+            >
+              {renderVideo && (
+                <video
+                  className={styles.fmv}
+                  loop
+                  autoPlay
+                  muted
+                  webkit-playsInline
+                  playsInline
+                >
+                  <source src={activeBkgd.videoSource} type="video/mp4" />
+                </video>
+              )}
+            </div>
+          </CSSTransition>
+        </SwitchTransition>
+      )}
+      {renderLoader && (
+        <Loader size={256} className={styles.loader} />
+      )}
     </>
   );
 };
 
-FmvBackground.defaultProps = {
-  children: undefined,
-};
-
-export default FmvBackground;
+export default React.memo(FmvBackground);

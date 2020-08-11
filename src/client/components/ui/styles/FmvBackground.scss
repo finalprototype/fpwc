@@ -1,3 +1,12 @@
+@import '../../../styles/colors';
+
+.loader {
+  position: fixed;
+  top: calc(50% - 128px);
+  left: calc(50% - 128px);
+  transition: opacity 300ms;
+}
+
 .container {
   position: fixed;
   top: 0;
@@ -20,4 +29,21 @@
   top: 50%;
   transform: translate(-50%, -50%);
   transition: opacity 1s;
+}
+
+.fade-enter{
+  opacity: 0;
+}
+.fade-exit{
+  opacity: 1;
+}
+.fade-enter-active{
+  opacity: 1;
+}
+.fade-exit-active{
+  opacity: 0;
+}
+.fade-enter-active,
+.fade-exit-active{
+  transition: opacity 250ms;
 }

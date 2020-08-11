@@ -1,14 +1,25 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 
+import { updateBackground } from '../../actions/background';
 import Button from '../ui/Button';
 import PageContent from '../ui/PageContent';
-import FmvBackground from '../ui/FmvBackground';
+
 import Video from '../../videos/min/smb1.mp4';
-import Fallback from '!url-loader!../../images/bkgds/360/smb-min.jpg';
+import Fallback from '../../images/bkgds/360/smb-min.jpg';
 
 import styles from './styles/SMB.scss';
 
 const SMB: React.FunctionComponent = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(updateBackground(
+      Fallback,
+      Video,
+    ));
+  }, [dispatch]);
+
   const [gameInit, setGameInit] = useState(false);
 
   const cleanup = () => {
@@ -36,10 +47,7 @@ const SMB: React.FunctionComponent = () => {
   }, [gameInit]);
 
   return (
-    <FmvBackground
-      videoSource={Video}
-      imageFallback={Fallback}
-    >
+    <>
       <PageContent
         className={styles.container}
         centered={gameInit}
@@ -125,7 +133,7 @@ const SMB: React.FunctionComponent = () => {
           </>
         )}
       </PageContent>
-    </FmvBackground>
+    </>
   );
 };
 

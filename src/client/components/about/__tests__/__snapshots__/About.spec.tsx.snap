@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`About renders me content 1`] = `
+<Fragment>
+  <PageContent
+    Sidebar={
+      <SideNav>
+        <NavItem
+          block={true}
+          isActive={false}
+          label="About The Site"
+          route="/about/site"
+          type="right"
+        />
+        <NavItem
+          block={true}
+          isActive={true}
+          label="About Me"
+          route="/about/me"
+          type="right"
+        />
+      </SideNav>
+    }
+    centered={false}
+    className="content"
+    flex={true}
+    full={false}
+  >
+    <AboutMeContent />
+  </PageContent>
+  <Footer
+    fixed={true}
+  />
+</Fragment>
+`;
+
+exports[`About renders site content 1`] = `
+<Fragment>
+  <PageContent
+    Sidebar={
+      <SideNav>
+        <NavItem
+          block={true}
+          isActive={true}
+          label="About The Site"
+          route="/about/site"
+          type="right"
+        />
+        <NavItem
+          block={true}
+          isActive={false}
+          label="About Me"
+          route="/about/me"
+          type="right"
+        />
+      </SideNav>
+    }
+    centered={false}
+    className="content"
+    flex={true}
+    full={false}
+  >
+    <AboutSiteContent />
+  </PageContent>
+  <Footer
+    fixed={true}
+  />
+</Fragment>
+`;
+
+exports[`About renders site content by default 1`] = `
+<Fragment>
+  <PageContent
+    Sidebar={
+      <SideNav>
+        <NavItem
+          block={true}
+          isActive={false}
+          label="About The Site"
+          route="/about/site"
+          type="right"
+        />
+        <NavItem
+          block={true}
+          isActive={false}
+          label="About Me"
+          route="/about/me"
+          type="right"
+        />
+      </SideNav>
+    }
+    centered={false}
+    className="content"
+    flex={true}
+    full={false}
+  >
+    <AboutSiteContent />
+  </PageContent>
+  <Footer
+    fixed={true}
+  />
+</Fragment>
+`;

@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
+import { updateBackground } from '../../actions/background';
 import Footer from '../ui/Footer';
 import PageContent from '../ui/PageContent';
-import FmvBackground from '../ui/FmvBackground';
+
 import Video from '../../videos/min/synthwave.mp4';
-import Fallback from '!url-loader!../../images/bkgds/360/synthwave-min.jpg';
+import Fallback from '../../images/bkgds/360/synthwave-min.jpg';
 
 const Work: React.FunctionComponent = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(updateBackground(
+      Fallback,
+      Video,
+    ));
+  }, [dispatch]);
+
   const sidebar = (
     <div>
       {[...Array(30).keys()].map((v) => (
@@ -15,10 +26,7 @@ const Work: React.FunctionComponent = () => {
     </div>
   );
   return (
-    <FmvBackground
-      videoSource={Video}
-      imageFallback={Fallback}
-    >
+    <>
       <PageContent flex Sidebar={sidebar}>
         <div>
           <p>
@@ -76,7 +84,7 @@ const Work: React.FunctionComponent = () => {
         </div>
       </PageContent>
       <Footer fixed />
-    </FmvBackground>
+    </>
   );
 };
 

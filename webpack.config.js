@@ -96,6 +96,7 @@ const config = {
           'react',
           'react-dom',
           'react-redux',
+          'react-router',
           'react-router-dom',
           'react-transition-group',
           'axios',

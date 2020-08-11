@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
+import { updateBackground } from '../../actions/background';
 import SideNav from '../ui/SideNav';
 import NavItem from '../ui/NavItem';
 import Footer from '../ui/Footer';
 import PageContent from '../ui/PageContent';
-import FmvBackground from '../ui/FmvBackground';
 import AboutMeContent from './AboutMeContent';
 import AboutSiteContent from './AboutSiteContent';
+
 import Video from '../../videos/min/sea.mp4';
-import Fallback from '!url-loader!../../images/bkgds/360/sea-min.jpg';
+import Fallback from '../../images/bkgds/360/sea-min.jpg';
 
 import styles from './styles/About.scss';
 
@@ -20,12 +22,14 @@ const getAboutContent = (route: string): React.FunctionComponent => {
     case '/about/site':
       return AboutSiteContent;
     default:
-      return AboutMeContent;
+      return AboutSiteContent;
   }
 };
 
 const About: React.FunctionComponent = () => {
   const location = useLocation();
+  const dispatch = useDispatch();
+
   const sidebar = (
     <SideNav>
       <NavItem
@@ -47,11 +51,15 @@ const About: React.FunctionComponent = () => {
 
   const Content: React.FunctionComponent = getAboutContent(location.pathname);
 
+  useEffect(() => {
+    dispatch(updateBackground(
+      Fallback,
+      Video,
+    ));
+  }, [dispatch]);
+
   return (
-    <FmvBackground
-      videoSource={Video}
-      imageFallback={Fallback}
-    >
+    <>
       <PageContent
         Sidebar={sidebar}
         className={styles.content}
@@ -60,7 +68,7 @@ const About: React.FunctionComponent = () => {
         <Content />
       </PageContent>
       <Footer fixed />
-    </FmvBackground>
+    </>
   );
 };
 

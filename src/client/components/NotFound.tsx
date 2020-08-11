@@ -1,16 +1,26 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 
+import { updateBackground } from '../actions/background';
 import { history } from './app/AppHistory';
 import PageContent from './ui/PageContent';
-import FmvBackground from './ui/FmvBackground';
 
-import DeadLink from '../images/dead_link.png';
 import Video from '../videos/min/glitch.mp4';
-import SynthwaveFallback from '!url-loader!../images/bkgds/360/synthwave-min.jpg';
+import Fallback from '../images/bkgds/360/glitch-min.jpg';
+import DeadLink from '../images/dead_link.png';
 
 import styles from './styles/NotFound.scss';
 
 const NotFound: React.FunctionComponent = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(updateBackground(
+      Fallback,
+      Video,
+    ));
+  }, [dispatch]);
+
   const redirectSeconds = 5;
   const [count, setCount] = useState(redirectSeconds);
 
@@ -26,10 +36,7 @@ const NotFound: React.FunctionComponent = () => {
   }, [count]);
 
   return (
-    <FmvBackground
-      videoSource={Video}
-      imageFallback={SynthwaveFallback}
-    >
+    <>
       <PageContent flex centered>
         <div className={styles.title}>
           404
@@ -44,7 +51,7 @@ const NotFound: React.FunctionComponent = () => {
           alt=""
         />
       </PageContent>
-    </FmvBackground>
+    </>
   );
 };
 

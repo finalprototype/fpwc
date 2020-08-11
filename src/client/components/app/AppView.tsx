@@ -3,6 +3,7 @@ import { FeatureToggles } from '@paralleldrive/react-feature-toggles';
 
 import { useActiveFlags } from '../../hooks/featureFlags';
 
+import FmvBackground from '../ui/FmvBackground';
 import Loader from '../ui/Loader';
 import Logo from '../ui/Logo';
 import MainNav from '../ui/MainNav';
@@ -20,6 +21,7 @@ const AppView: React.FunctionComponent = () => {
   return (
     <FeatureToggles features={flags}>
       <ModalProvider>
+        <FmvBackground />
         <div className={styles.header}>
           <Logo className={styles.logo} />
           <MainNav className={styles.nav} />
