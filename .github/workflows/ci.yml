@@ -59,7 +59,7 @@ jobs:
         uses: thedoctor0/zip-release@0.4.1
         with:
           filename: 'deploy.zip'
-          exclusions: '.env* .git/* .elasticbeanstalk/* node_modules/* npm-debug.log'
+          exclusions: '.env* *.git* .elasticbeanstalk/* /*node_modules/* npm-debug.log'
 
       - name: "Get Version"
         id: package-version
