@@ -99,7 +99,7 @@ const config = {
           'react-router',
           'react-router-dom',
           'react-transition-group',
-          'axios',
+          'cross-fetch',
           'classnames',
           'debug',
           'history',

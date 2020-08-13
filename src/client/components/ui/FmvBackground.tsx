@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
 
-import { RootState } from '../../reducers';
+import { RootState } from '../../store';
 import { useImagePreload } from '../../hooks/preloadHooks';
 import Loader from './Loader';
 

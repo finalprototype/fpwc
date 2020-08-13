@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { updateBackground } from '../../actions/background';
+import { updateBackground } from '../../store/background/actions';
 import Footer from '../ui/Footer';
 import PageContent from '../ui/PageContent';
 import SMB2Badge from '../../images/smb2je-logo-300.png';

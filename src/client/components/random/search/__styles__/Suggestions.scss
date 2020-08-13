@@ -1,0 +1,13 @@
+@import '../../../../styles/colors';
+
+.container {
+  position: relative;
+  list-style-type: none;
+}
+
+.option {
+  button {
+    font-style: italic;
+    color: $blue-light;
+  }
+}

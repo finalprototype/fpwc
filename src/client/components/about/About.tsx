@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
-import { updateBackground } from '../../actions/background';
+import { updateBackground } from '../../store/background/actions';
 import SideNav from '../ui/SideNav';
 import NavItem from '../ui/NavItem';
 import Footer from '../ui/Footer';

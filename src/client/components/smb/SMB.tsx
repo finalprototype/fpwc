@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { updateBackground } from '../../actions/background';
+import { updateBackground } from '../../store/background/actions';
 import Button from '../ui/Button';
 import PageContent from '../ui/PageContent';
 
