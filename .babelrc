@@ -1,0 +1,26 @@
+{
+  "presets": [
+    ["@babel/env", {
+      "targets": {
+        "browsers": [
+          ">2%",
+          "not ie 11",
+          "not op_mini all"
+        ]
+      },
+      "modules": false
+    }],
+    "@babel/preset-typescript",
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "@babel/proposal-class-properties",
+    "@babel/proposal-object-rest-spread",
+    ["react-css-modules", {
+      "generateScopedName": "[name]__[local]___[hash:3]",
+      "filetypes": {
+        ".scss": { "syntax": "postcss-scss" }
+      }
+    }]
+  ]
+}
