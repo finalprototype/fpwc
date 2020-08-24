@@ -6,13 +6,13 @@ import styles from './__styles__/About.scss';
 
 const AboutSiteContent: React.FunctionComponent = () => {
   const header = (
-    <header className={styles.header}>
+    <header styleName="header">
       <h1 id="overview">About This Site</h1>
     </header>
   );
 
   const overview = (
-    <section className={styles.overview}>
+    <section styleName="overview">
       <p>
         In March 2020, the company I helped grow over the last 5+ years, Managed
         by Q, ended with a competitor buyout. Five years is a long time at a
@@ -51,7 +51,7 @@ const AboutSiteContent: React.FunctionComponent = () => {
   );
 
   const details = (
-    <section className={styles.details}>
+    <section styleName="details">
       <h2 id="details">Details</h2>
       <p>
         The site is built more as a web application. The client experience is
@@ -99,7 +99,7 @@ const AboutSiteContent: React.FunctionComponent = () => {
   );
 
   const source = (
-    <section className={styles.source}>
+    <section styleName="source">
       <h2 id="source">Source</h2>
       <p>
         In an effort in transparency and to showcase a baseline of my

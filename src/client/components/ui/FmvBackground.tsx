@@ -55,14 +55,14 @@ export const FmvBackground: React.FunctionComponent = () => {
             timeout={250}
           >
             <div
-              className={styles.container}
+              styleName="container"
               style={{
                 backgroundImage: `url('${activeBkgd.imageSource}')`,
               }}
             >
               {renderVideo && (
                 <video
-                  className={styles.fmv}
+                  styleName="fmv"
                   loop
                   autoPlay
                   muted

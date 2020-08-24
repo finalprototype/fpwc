@@ -21,8 +21,8 @@ const CloseButton: React.FunctionComponent<Props> = (props: Props) => {
       onClick={onClick}
       type="button"
     >
-      <span className={styles.outer}>
-        <span className={styles.inner} />
+      <span styleName="outer">
+        <span styleName="inner" />
       </span>
     </button>
   );

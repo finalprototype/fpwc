@@ -4,11 +4,16 @@ export default keyMirror([
   'APP_INIT_CONFIG',
 ]);
 
-// Interfaces
 export interface AppState {
+  isReady: boolean;
+  config: AppConfig;
+}
+
+// Interfaces
+export interface AppConfig {
   env: string;
   version: string;
-  assets_path: string;
+  assetsPath: string;
   manifest: { [key: string]: string|string[] };
   flags: string[];
 }

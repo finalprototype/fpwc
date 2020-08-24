@@ -55,19 +55,19 @@ const SMB: React.FunctionComponent = () => {
         flex
       >
         {gameInit && (
-          <canvas id="canvas" className={styles.smbcanvas} />
+          <canvas id="canvas" styleName="smbcanvas" />
         )}
         {!gameInit && (
           <>
-            <div className={styles.header}>
-              <div className={styles.title}>
+            <div styleName="header">
+              <div styleName="title">
                 SUPER MARIO BROS.
               </div>
-              <div className={styles.subtitle}>
+              <div styleName="subtitle">
                 A JavaScript prototype
               </div>
             </div>
-            <div className={styles.description}>
+            <div styleName="description">
               <p>
                 In 2010,
                 <a

@@ -98,9 +98,10 @@ const config = {
           'react-redux',
           'react-router',
           'react-router-dom',
+          'redux-thunk',
           'react-transition-group',
-          'cross-fetch',
           'classnames',
+          'cross-fetch',
           'debug',
           'history',
           'lodash',
@@ -125,17 +126,9 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/,
-        use:[
-          {
-            loader: "awesome-typescript-loader",
-            options : {
-              reportFiles: [
-                path.join(DIR_CLIENT, '**/*.{ts,tsx}')
-              ]
-            }
-          }
-        ]
+        test: /\.(j|t)sx?$/,
+        loader: 'babel-loader',
+        include: [DIR_CLIENT, DIR_TYPES],
       },
 
       {

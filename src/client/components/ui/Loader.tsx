@@ -49,7 +49,7 @@ const Loader: React.FunctionComponent<Props> = ({
       className={containerClasses}
       style={{ width: `${size}px`, height: `${size}px` }}
     >
-      <div className={styles.inner}>
+      <div styleName="inner">
         <div
           style={{
             borderColor: color1,

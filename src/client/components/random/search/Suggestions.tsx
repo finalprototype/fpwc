@@ -2,7 +2,7 @@ import React from 'react';
 
 import { SearchResultObject } from '../../../store/search/types';
 
-import styles from './__styles__/Suggestions.scss';
+import './__styles__/Suggestions.scss';
 
 interface Props {
   options: SearchResultObject[];
@@ -16,7 +16,7 @@ const Suggestions: React.FunctionComponent<Props> = ({
   const renderOptions = options.map((val) => (
     <li
       key={val.label}
-      className={styles.option}
+      styleName="option"
     >
       <button
         type="button"
@@ -28,7 +28,7 @@ const Suggestions: React.FunctionComponent<Props> = ({
   ));
 
   return (
-    <ul className={styles.container}>
+    <ul styleName="container">
       {renderOptions}
     </ul>
   );

@@ -20,16 +20,9 @@ const Work: React.FunctionComponent = () => {
     ));
   }, [dispatch]);
 
-  const sidebar = (
-    <div>
-      {[...Array(30).keys()].map((v) => (
-        <div key={'sidebar{v + 10}'}>Sidebar item number {v}</div>
-      ))}
-    </div>
-  );
   return (
     <>
-      <PageContent flex Sidebar={sidebar}>
+      <PageContent flex>
         <div>
           <SearchContainer
             searchAction={searchLanguages}

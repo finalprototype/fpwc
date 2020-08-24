@@ -13,11 +13,6 @@ module.exports = {
   moduleFileExtensions: ["js", "json", "ts", "tsx", "d.ts"],
   modulePaths: ["<rootDir>"],
   transform: {
-    "^.+\\.(js|ts|tsx)$": "ts-jest",
-  },
-  globals: {
-    'ts-jest': {
-      isolatedModules: true
-    }
+    "^.+\\.(js|ts|tsx)$": "babel-jest",
   }
 };
