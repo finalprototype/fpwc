@@ -34,10 +34,10 @@ const PageContent: React.FunctionComponent<Props> = (props: Props) => {
     ? children
     : (
       <>
-        <div className={styles.sidebar}>
+        <div styleName="sidebar">
           {Sidebar}
         </div>
-        <div className={styles.content}>
+        <div styleName="content">
           {children}
         </div>
       </>

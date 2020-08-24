@@ -94,11 +94,11 @@ export const Modal = ({
     <div
       role="button"
       tabIndex={0}
-      className={styles.container}
+      styleName="container"
       onClick={!disableClose ? handleOutsideClick : undefined}
       onKeyDown={undefined}
     >
-      <div className={styles.inner} ref={modalElement}>
+      <div styleName="inner" ref={modalElement}>
         {!disableClose && (
           <CloseButton
             className={styles['close-btn']}

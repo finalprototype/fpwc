@@ -9,7 +9,7 @@ import Video from '../videos/min/glitch.mp4';
 import Fallback from '../images/bkgds/360/glitch-min.jpg';
 import DeadLink from '../images/dead_link.png';
 
-import styles from './__styles__/NotFound.scss';
+import './__styles__/NotFound.scss';
 
 const NotFound: React.FunctionComponent = () => {
   const dispatch = useDispatch();
@@ -38,15 +38,15 @@ const NotFound: React.FunctionComponent = () => {
   return (
     <>
       <PageContent flex centered>
-        <div className={styles.title}>
+        <div styleName="title">
           404
         </div>
-        <div className={styles.subtitle}>
+        <div styleName="subtitle">
           (redirecting in {count})
         </div>
         <br />
         <img
-          className={styles.hero}
+          styleName="hero"
           src={DeadLink}
           alt=""
         />

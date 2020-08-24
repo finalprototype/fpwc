@@ -44,15 +44,15 @@ const Logo: React.FunctionComponent<Props> = (props: Props) => {
 
   return (
     <div className={containerClasses}>
-      <div className={styles.primary}>
+      <div styleName="primary">
         fp
       </div>
       <button
         onClick={() => restartAnimState(true)}
-        className={styles.secondary}
+        styleName="secondary"
         type="button"
       >
-        <div className={styles.backgroundline}>
+        <div styleName="backgroundline">
           {scriptText}
         </div>
         <div className={neonClasses}>

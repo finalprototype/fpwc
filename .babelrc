@@ -17,6 +17,7 @@
     "@babel/proposal-class-properties",
     "@babel/proposal-object-rest-spread",
     ["react-css-modules", {
+      "autoResolveMultipleImports": true,
       "generateScopedName": "[name]__[local]___[hash:3]",
       "filetypes": {
         ".scss": { "syntax": "postcss-scss" }

@@ -22,11 +22,11 @@ const AppView: React.FunctionComponent = () => {
     <FeatureToggles features={flags}>
       <ModalProvider>
         <FmvBackground />
-        <div className={styles.header}>
+        <div styleName="header">
           <Logo className={styles.logo} />
           <MainNav className={styles.nav} />
         </div>
-        <div className={styles.content}>
+        <div styleName="content">
           <Suspense fallback={suspenseFallback}>
             <AppRouter />
           </Suspense>
