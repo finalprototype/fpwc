@@ -1,9 +1,13 @@
 import qs from 'qs';
 import { useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { uniq, difference } from 'lodash';
 
+import { RootState } from '../store';
+
 export const useActiveFlags = (): string[] => {
-  const initialflags = window.config.flags;
+  const { config } = useSelector((state: RootState) => state.app);
+  const initialflags = config.flags;
   const { search } = useLocation();
   const {
     ffe = '',

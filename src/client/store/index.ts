@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import AppReducer from './app/reducers';
+import AppReducer from './app/slice';
 import BackgroundReducer from './background/reducers';
 import SearchReducer from './search/reducers';
 

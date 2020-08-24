@@ -2,26 +2,49 @@ import React from 'react';
 import qs from 'qs';
 import { shallow } from 'enzyme';
 
+import { AppState } from '../../store/app/types';
+
 import { useActiveFlags } from '../featureFlags';
 
 let mockLocation = '/path';
+let localConfig = {};
 let paramsObj: { [key: string]: string|number|boolean|undefined } = {};
+const mockAppConfig = {
+  env: 'test',
+  version: '0',
+  assetsPath: '',
+  manifest: {},
+  flags: [],
+};
 const setUrlFlags = (enabled: boolean, ...flags: string[]): void => {
   const key = enabled ? 'ffe' : 'ffd';
   paramsObj[key] = flags.join(',');
 };
-const setLocationReturn = (): { [key: string]: string } => ({
+const mockLocationReturn = (): { [key: string]: string } => ({
   pathname: mockLocation,
   search: qs.stringify(paramsObj, {
     addQueryPrefix: true,
     format: 'RFC1738',
   }),
 });
+const mockAppState = (): AppState => ({
+  isReady: true,
+  config: {
+    ...mockAppConfig,
+    ...localConfig,
+  },
+});
+
+jest.mock('react-redux', () => ({
+  // @ts-ignore
+  ...jest.requireActual('react-redux'),
+  useSelector: () => mockAppState(),
+}));
 
 jest.mock('react-router-dom', () => ({
   // @ts-ignore
   ...jest.requireActual('react-router-dom'),
-  useLocation: () => setLocationReturn(),
+  useLocation: () => mockLocationReturn(),
 }));
 
 describe('hooks/featureFlags', () => {
@@ -31,13 +54,7 @@ describe('hooks/featureFlags', () => {
   // @ts-ignore
   const HookWrapper = ({ hook }: HookWrapperProps) => <div hook={hook()} />;
   const cleanUp = () => {
-    global.window.config = {
-      env: 'test',
-      version: '0',
-      assets_path: '',
-      manifest: {},
-      flags: [],
-    } as Config;
+    localConfig = {};
     mockLocation = '/path';
     paramsObj = {
       adummy: true,
@@ -80,7 +97,7 @@ describe('hooks/featureFlags', () => {
     });
 
     it('returns only initial flags', () => {
-      global.window.config.flags = mockInitialFlags;
+      localConfig = { flags: mockInitialFlags };
 
       const wrapper = shallow(
         <HookWrapper hook={() => useActiveFlags()} />
@@ -103,7 +120,9 @@ describe('hooks/featureFlags', () => {
     });
 
     it('returns unique initial and url enabled flags', () => {
-      global.window.config.flags = mockInitialFlags.concat(mockSharedFlags);
+      localConfig = {
+        flags: mockInitialFlags.concat(mockSharedFlags),
+      };
       setUrlFlags(
         true,
         ...mockUrlEnabledFlags.concat(mockSharedFlags),
@@ -125,7 +144,9 @@ describe('hooks/featureFlags', () => {
         'shared 5',
       ];
 
-      global.window.config.flags = mockInitialFlags.concat(mockSharedFlags);
+      localConfig = {
+        flags: mockInitialFlags.concat(mockSharedFlags),
+      };
       setUrlFlags(
         true,
         ...mockUrlEnabledFlags.concat(mockSharedFlags),
@@ -146,7 +167,9 @@ describe('hooks/featureFlags', () => {
     });
 
     it('returns empty if all flags disabled', () => {
-      global.window.config.flags = mockInitialFlags.concat(mockSharedFlags);
+      localConfig = {
+        flags: mockInitialFlags.concat(mockSharedFlags),
+      };
       setUrlFlags(
         true,
         ...mockUrlEnabledFlags.concat(mockSharedFlags),

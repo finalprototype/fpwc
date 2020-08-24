@@ -11,16 +11,16 @@ const AboutMeContent: React.FunctionComponent = () => {
   const { showModal } = useModal();
 
   const header = (
-    <header className={styles.header}>
+    <header styleName="header">
       <h1 id="overview">About Me</h1>
     </header>
   );
 
   const overview = (
-    <section className={styles.overview}>
+    <section styleName="overview">
       <img
         src={Face}
-        className={styles.face}
+        styleName="face"
         alt=""
       />
       <p>
@@ -34,7 +34,7 @@ const AboutMeContent: React.FunctionComponent = () => {
   );
 
   const professional = (
-    <section className={styles.professional}>
+    <section styleName="professional">
       <h2 id="professional">Professionally</h2>
       <p>
         I&apos;m a web applications software architect and engineer. With over 15
@@ -66,17 +66,17 @@ const AboutMeContent: React.FunctionComponent = () => {
   );
 
   const nintendoModalContent = (
-    <h1 className={styles.nintendo}>
+    <h1 styleName="nintendo">
       Nintendo Switch Friend Code
       <br />
-      <code className={styles.friendcode}>
+      <code styleName="friendcode">
         SW-1797-4236-4401
       </code>
     </h1>
   );
 
   const personal = (
-    <section className={styles.personal}>
+    <section styleName="personal">
       <h2 id="personal">Personally</h2>
       <p>
         I like to grill steaks and peaches.<br />
@@ -89,7 +89,7 @@ const AboutMeContent: React.FunctionComponent = () => {
         There&apos;s a ton of stuff I could just list off. Instead, let&apos;s focus
         on the two main passions I have.
       </p>
-      <section className={styles.games}>
+      <section styleName="games">
         <h3>Video Games</h3>
         <p>
           I play a lot of video games. Seriously.
